@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import NLXManager from '../utils/nlxManager';
 
-// Custom hook to interact with the NLX Widget
+// Custom hook to interact with the Enhanced NLX Voice Plus Widget
 export const useNLXWidget = () => {
   const [isReady, setIsReady] = useState(false);
   const [touchpoint, setTouchpoint] = useState<any>(null);
@@ -9,7 +9,6 @@ export const useNLXWidget = () => {
   useEffect(() => {
     const nlxManager = NLXManager.getInstance();
     
-
     // Function to update state
     const updateState = () => {
       setIsReady(nlxManager.isReady());
@@ -56,11 +55,23 @@ export const useNLXWidget = () => {
     }
   };
 
+  const updatePageContext = () => {
+    const nlxManager = NLXManager.getInstance();
+    nlxManager.updatePageContext();
+  };
+
+  const getFormElements = () => {
+    const nlxManager = NLXManager.getInstance();
+    return nlxManager.getFormElements();
+  };
+
   return {
     isReady,
     touchpoint,
     openWidget,
     closeWidget,
-    sendMessage
+    sendMessage,
+    updatePageContext,
+    getFormElements
   };
 };
