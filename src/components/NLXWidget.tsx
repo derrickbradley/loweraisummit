@@ -62,7 +62,7 @@ export const NLXWidget: React.FC = () => {
     };
   }, []);
 
-  // Effect to handle dynamic form changes
+  // Effect to handle dynamic form changes (matching template pattern)
   useEffect(() => {
     const nlxManager = NLXManager.getInstance();
     
@@ -102,7 +102,7 @@ export const NLXWidget: React.FC = () => {
       }
     });
 
-    // Start observing
+    // Start observing (matching template pattern)
     observer.observe(document.body, {
       childList: true,
       subtree: true
@@ -110,6 +110,43 @@ export const NLXWidget: React.FC = () => {
 
     return () => {
       observer.disconnect();
+    };
+  }, []);
+
+  // Effect to handle route changes and update context
+  useEffect(() => {
+    const handleRouteChange = () => {
+      const nlxManager = NLXManager.getInstance();
+      if (nlxManager.isReady()) {
+        // Delay to ensure DOM has updated after route change
+        setTimeout(() => {
+          nlxManager.updatePageContext();
+        }, 100);
+      }
+    };
+
+    // Listen for both popstate and custom route change events
+    window.addEventListener('popstate', handleRouteChange);
+    
+    // Also listen for programmatic navigation
+    const originalPushState = window.history.pushState;
+    const originalReplaceState = window.history.replaceState;
+
+    window.history.pushState = function(...args) {
+      originalPushState.apply(window.history, args);
+      handleRouteChange();
+    };
+
+    window.history.replaceState = function(...args) {
+      originalReplaceState.apply(window.history, args);
+      handleRouteChange();
+    };
+
+    return () => {
+      window.removeEventListener('popstate', handleRouteChange);
+      // Restore original methods
+      window.history.pushState = originalPushState;
+      window.history.replaceState = originalReplaceState;
     };
   }, []);
 

@@ -56,7 +56,7 @@ class NLXManager {
       // Check if widget already exists in DOM
       const existingWidget = document.querySelector('.nlx-touchpoint-widget, .nlx-touchpoint-container');
       if (existingWidget && this.touchpoint) {
-        console.log('NLX Widget already exists in DOM, reusing...');
+        console.log('Enhanced NLX Voice Plus Widget already exists in DOM, reusing...');
         this.isInitialized = true;
         this.sendPageContext();
         return;
@@ -65,6 +65,7 @@ class NLXManager {
       console.log('Initializing Enhanced NLX Voice Plus Widget...');
       const { create } = await import("@nlxai/touchpoint-ui");
 
+      // Create touchpoint with Enhanced Voice Plus configuration matching the template
       this.touchpoint = await create({
         config: {
           applicationUrl: "https://apps.nlx.ai/c/vwihrwikqEqKAWjVh9YCI/_mguSWCwBPq11dTtbMiDs",
@@ -75,10 +76,10 @@ class NLXManager {
           userId: "13e961de-47dc-4f0a-b02a-eb49955c92d5"
         },
         colorMode: "dark",
-        input: "voiceMini",
+        input: "voiceMini", // Enable voice input with bidirectional support
         theme: {"fontFamily":"\"Neue Haas Grotesk\", sans-serif","accent":"#AECAFF"},
         bidirectional: {
-          automaticContext: false,
+          automaticContext: false, // Disable automatic context to manually control it
           navigation: this.handleNavigation.bind(this),
           input: this.handleFormInput.bind(this),
           custom: this.handleCustomCommand.bind(this)
@@ -114,44 +115,39 @@ class NLXManager {
     }
 
     try {
-      // Analyze forms on the current page
+      // Analyze forms on the current page using the same method as the template
       const { context, formElements } = analyzePageForms();
       this.formElements = formElements;
 
-      // Define navigation destinations based on current routes
+      // Define navigation destinations based on current routes (matching template pattern)
       const destinations = [
-        "home", "/", 
-        "speakers", "/speakers",
-        "schedule", "/schedule", 
-        "tickets", "/tickets",
-        "blog", "/blog",
-        "contact", "/contact",
-        "about", "/about"
+        "home", "about", "contact", "speakers", "schedule", "tickets", "blog"
       ];
 
-      // Send context to NLX
+      // Send context using the new sendContext method (matching template exactly)
       this.touchpoint.conversationHandler.sendContext({
         "nlx:vpContext": {
           url: window.location.origin,
-          path: window.location.pathname,
           fields: context,
           destinations: destinations,
         },
       });
 
-      console.log('Page context sent to NLX Voice Plus:', {
+      console.log('Enhanced Voice Plus page context sent to NLX:', {
         url: window.location.origin,
         path: window.location.pathname,
         fieldsCount: Object.keys(context).length,
-        destinationsCount: destinations.length
+        destinationsCount: destinations.length,
+        formElementsCount: Object.keys(formElements).length
       });
     } catch (error) {
       console.error('Failed to send page context:', error);
     }
   }
 
+  // Handle navigation commands (matching template implementation)
   private handleNavigation = (action: string, destination: string): void => {
-    console.log('Voice navigation command:', { action, destination });
+    console.log('Enhanced Voice Plus navigation command:', { action, destination });
 
     try {
       switch (action) {
@@ -164,12 +160,9 @@ class NLXManager {
           break;
 
         case "page_custom":
-          // Handle React Router navigation
+          // Handle React Router navigation (matching template pattern)
           if (destination.startsWith("/")) {
-            // Use React Router for internal navigation
-            window.history.pushState(null, '', destination);
-            // Trigger a popstate event to notify React Router
-            window.dispatchEvent(new PopStateEvent('popstate'));
+            window.location.pathname = destination;
           } else {
             // Handle named destinations
             const routeMap: Record<string, string> = {
@@ -178,13 +171,13 @@ class NLXManager {
               'schedule': '/schedule',
               'tickets': '/tickets',
               'blog': '/blog',
-              'contact': '/contact'
+              'contact': '/contact',
+              'about': '/about'
             };
 
             const route = routeMap[destination.toLowerCase()];
             if (route) {
-              window.history.pushState(null, '', route);
-              window.dispatchEvent(new PopStateEvent('popstate'));
+              window.location.pathname = route;
             } else {
               // External URL
               window.location.href = destination;
@@ -200,8 +193,9 @@ class NLXManager {
     }
   };
 
+  // Handle form input commands (matching template implementation exactly)
   private handleFormInput = (fields: Array<{ id: string; value: string }>): void => {
-    console.log('Voice form input command:', fields);
+    console.log('Enhanced Voice Plus form input command:', fields);
 
     try {
       fields.forEach((field) => {
@@ -210,21 +204,18 @@ class NLXManager {
           
           // Set the value
           element.value = field.value;
+          element.classList.add("voice-updated");
           
-          // Add visual feedback
-          element.style.backgroundColor = '#ffeb3b';
-          element.style.transition = 'background-color 0.3s ease';
+          // Trigger events for frameworks that listen to them (matching template)
+          element.dispatchEvent(new Event("input", { bubbles: true }));
+          element.dispatchEvent(new Event("change", { bubbles: true }));
           
-          // Trigger events for React and other frameworks
-          element.dispatchEvent(new Event('input', { bubbles: true }));
-          element.dispatchEvent(new Event('change', { bubbles: true }));
-          
-          // Remove highlight after 2 seconds
+          // Remove highlight after 2 seconds (matching template)
           setTimeout(() => {
-            element.style.backgroundColor = '';
+            element.classList.remove("voice-updated");
           }, 2000);
           
-          console.log(`Filled field ${field.id} with value: ${field.value}`);
+          console.log(`Enhanced Voice Plus filled field ${field.id} with value: ${field.value}`);
         } else {
           console.warn(`Field with id "${field.id}" not found in formElements`);
         }
@@ -234,8 +225,9 @@ class NLXManager {
     }
   };
 
+  // Handle custom commands (matching template structure)
   private handleCustomCommand = (action: string, payload: any): void => {
-    console.log('Voice custom command:', { action, payload });
+    console.log('Enhanced Voice Plus custom command:', { action, payload });
 
     try {
       switch (action) {
@@ -244,23 +236,19 @@ class NLXManager {
           break;
         
         case 'openTickets':
-          window.history.pushState(null, '', '/tickets');
-          window.dispatchEvent(new PopStateEvent('popstate'));
+          window.location.pathname = '/tickets';
           break;
           
         case 'showSpeakers':
-          window.history.pushState(null, '', '/speakers');
-          window.dispatchEvent(new PopStateEvent('popstate'));
+          window.location.pathname = '/speakers';
           break;
           
         case 'viewSchedule':
-          window.history.pushState(null, '', '/schedule');
-          window.dispatchEvent(new PopStateEvent('popstate'));
+          window.location.pathname = '/schedule';
           break;
 
         case 'contactUs':
-          window.history.pushState(null, '', '/contact');
-          window.dispatchEvent(new PopStateEvent('popstate'));
+          window.location.pathname = '/contact';
           break;
 
         default:
@@ -273,13 +261,28 @@ class NLXManager {
 
   private handleSearchCommand(payload: any): void {
     if (payload && payload.query) {
-      // Implement search functionality
-      console.log('Searching for:', payload.query);
+      // Implement search functionality (matching template)
+      console.log('Enhanced Voice Plus searching for:', payload.query);
       
       // You could trigger a search modal or navigate to a search page
       // For now, we'll just log it
-      alert(`Voice search: ${payload.query}`);
+      this.showVoiceFeedback(`Voice search: ${payload.query}`);
     }
+  }
+
+  private showVoiceFeedback(message: string): void {
+    // Create visual feedback for voice commands
+    const feedback = document.createElement('div');
+    feedback.className = 'voice-command-feedback';
+    feedback.textContent = message;
+    
+    document.body.appendChild(feedback);
+    
+    setTimeout(() => {
+      if (feedback.parentNode) {
+        feedback.parentNode.removeChild(feedback);
+      }
+    }, 3000);
   }
 
   private setupRouteChangeDetection(): void {
@@ -313,7 +316,7 @@ class NLXManager {
     const newRoute = window.location.pathname;
     if (newRoute !== this.currentRoute) {
       this.currentRoute = newRoute;
-      console.log('Route changed to:', newRoute);
+      console.log('Enhanced Voice Plus route changed to:', newRoute);
       
       // Re-analyze page and send new context
       this.sendPageContext();

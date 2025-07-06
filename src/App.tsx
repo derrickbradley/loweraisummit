@@ -21,7 +21,7 @@ function App() {
   useEffect(() => {
     const nlxManager = NLXManager.getInstance();
     
-    // Initialize immediately when app starts
+    // Initialize immediately when app starts (matching template pattern)
     nlxManager.initialize().catch(error => {
       console.error('Failed to initialize Enhanced NLX Voice Plus Widget at app level:', error);
     });
@@ -35,7 +35,7 @@ function App() {
 
     window.addEventListener('keydown', handleKeyDown);
 
-    // Cleanup only when the entire app unmounts
+    // Cleanup only when the entire app unmounts (matching template pattern)
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
       

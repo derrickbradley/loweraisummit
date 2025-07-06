@@ -42,13 +42,22 @@
   transform: none !important;
 }
 
-/* Voice Plus form field highlighting */
+/* Voice Plus form field highlighting (matching template) */
 .voice-updated {
   background-color: #ffeb3b !important;
   transition: background-color 0.3s ease !important;
 }
 
-/* Voice Plus visual feedback styles */
+/* Voice Plus visual feedback styles (matching template) */
+@keyframes highlight {
+  0% {
+    background-color: #ffeb3b;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
 @keyframes voice-highlight {
   0% {
     background-color: #ffeb3b;
@@ -69,7 +78,7 @@
   border-radius: 12px !important;
 }
 
-/* Voice command feedback */
+/* Voice command feedback (matching template pattern) */
 .voice-command-feedback {
   position: fixed;
   top: 20px;
