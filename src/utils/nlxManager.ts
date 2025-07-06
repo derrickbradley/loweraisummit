@@ -1,5 +1,6 @@
 // NLX Manager - Singleton pattern with Enhanced Voice Plus support
 import { analyzePageForms } from "@nlxai/touchpoint-ui";
+import qaData from "../../lower-summit-2025-qa.json";
 
 class NLXManager {
   private static instance: NLXManager;
@@ -66,14 +67,7 @@ class NLXManager {
       const { create } = await import("@nlxai/touchpoint-ui");
 
       this.touchpoint = await create({
-        config: {
-          applicationUrl: "https://apps.nlx.ai/c/vwihrwikqEqKAWjVh9YCI/_mguSWCwBPq11dTtbMiDs",
-          headers: {
-            "nlx-api-key": "FFPPQdPzOYFx8Gad1675NUMC"
-          },
-          languageCode: "en-US",
-          userId: "13e961de-47dc-4f0a-b02a-eb49955c92d5"
-        },
+        data: qaData,
         colorMode: "dark",
         input: "voiceMini",
         theme: {"fontFamily":"\"Neue Haas Grotesk\", sans-serif","accent":"#AECAFF"},
