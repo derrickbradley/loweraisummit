@@ -15,6 +15,8 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-white">
+        {/* NLX Widget - Initialize once at app level */}
+        <NLXWidget />
         <Header />
         <main className="pt-16">
           <Routes>
@@ -28,7 +30,6 @@ function App() {
           </Routes>
         </main>
         <Footer />
-        <NLXWidget />
       </div>
     </Router>
   );

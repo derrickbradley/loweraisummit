@@ -1,28 +1,31 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
+import NLXManager from '../utils/nlxManager';
 
 export const NLXWidget: React.FC = () => {
+  const initializationRef = useRef(false);
+
   useEffect(() => {
-    const initializeNLX = async () => {
-      const { create } = await import("@nlxai/touchpoint-ui");
+    // Ensure we only initialize once per session
+    if (initializationRef.current) {
+      return;
+    }
 
-      const touchpoint = await create({
-        config: {
-          applicationUrl: "https://apps.nlx.ai/c/vwihrwikqEqKAWjVh9YCI/_mguSWCwBPq11dTtbMiDs",
-          headers: {
-            "nlx-api-key": "FFPPQdPzOYFx8Gad1675NUMC"
-          },
-          languageCode: "en-US",
-          userId: "13e961de-47dc-4f0a-b02a-eb49955c92d5"
-        },
-        colorMode: "dark",
-        input: "voiceMini",
-        theme: {"fontFamily":"\"Neue Haas Grotesk\", sans-serif","accent":"#AECAFF"},
-        bidirectional: {}
+    initializationRef.current = true;
+    const nlxManager = NLXManager.getInstance();
+
+    // Initialize the widget if not already done
+    if (!nlxManager.isReady()) {
+      nlxManager.initialize().catch(error => {
+        console.error('NLX Widget initialization failed:', error);
       });
-    };
+    }
 
-    initializeNLX();
-  }, []);
+    // Cleanup function - only destroy on app unmount, not on route changes
+    return () => {
+      // Don't destroy on route changes, only on actual app unmount
+      // The widget should persist across all pages
+    };
+  }, []); // Empty dependency array ensures this runs only once
 
   return null;
 };

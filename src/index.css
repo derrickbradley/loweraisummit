@@ -5,6 +5,7 @@
 /* Ensure the NLX widget has proper z-index and positioning */
 .nlx-touchpoint-widget {
   z-index: 9999 !important;
+  position: fixed !important;
 }
 
 /* Custom styling for the voice widget to match the site theme */
@@ -15,6 +16,15 @@
 /* Ensure the widget doesn't interfere with site navigation */
 .nlx-touchpoint-container {
   pointer-events: auto !important;
+  position: fixed !important;
+  z-index: 9999 !important;
+}
+
+/* Ensure widget persists across page transitions */
+.nlx-touchpoint-widget,
+.nlx-touchpoint-container {
+  transition: none !important;
+  animation: none !important;
 }
 
 /* Respect reduced motion preferences */
@@ -31,5 +41,12 @@
   /* Disable confetti and complex animations for reduced motion */
   .confetti-particle {
     display: none !important;
+  }
+  
+  /* Ensure NLX widget respects reduced motion */
+  .nlx-touchpoint-widget,
+  .nlx-touchpoint-container {
+    animation: none !important;
+    transition: none !important;
   }
 }
