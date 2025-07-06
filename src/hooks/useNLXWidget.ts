@@ -9,20 +9,33 @@ export const useNLXWidget = () => {
   useEffect(() => {
     const nlxManager = NLXManager.getInstance();
     
-    // Check if already initialized
-    if (nlxManager.isReady()) {
-      setIsReady(true);
-      setTouchpoint(nlxManager.getTouchpoint());
-      return;
-    }
 
-    // Initialize if not ready
-    nlxManager.initialize().then(() => {
+    // Function to update state
+    const updateState = () => {
       setIsReady(nlxManager.isReady());
       setTouchpoint(nlxManager.getTouchpoint());
-    }).catch(error => {
-      console.error('Failed to initialize NLX Widget:', error);
-    });
+    };
+
+    // Initial state update
+    updateState();
+
+    // Set up a polling mechanism to check for widget readiness
+    const checkInterval = setInterval(() => {
+      if (nlxManager.isReady() && nlxManager.widgetExistsInDOM()) {
+        updateState();
+        clearInterval(checkInterval);
+      }
+    }, 100);
+
+    // Cleanup interval after 10 seconds max
+    const timeout = setTimeout(() => {
+      clearInterval(checkInterval);
+    }, 10000);
+
+    return () => {
+      clearInterval(checkInterval);
+      clearTimeout(timeout);
+    };
   }, []);
 
   const openWidget = () => {

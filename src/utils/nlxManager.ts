@@ -4,10 +4,22 @@ class NLXManager {
   private touchpoint: any = null;
   private isInitialized = false;
   private isInitializing = false;
+  private initPromise: Promise<void> | null = null;
 
-  private constructor() {}
+  private constructor() {
+    // Bind to window to ensure persistence across React re-renders
+    if (typeof window !== 'undefined') {
+      (window as any).__nlxManager = this;
+    }
+  }
 
   public static getInstance(): NLXManager {
+    // Check if instance exists on window first (for persistence)
+    if (typeof window !== 'undefined' && (window as any).__nlxManager) {
+      NLXManager.instance = (window as any).__nlxManager;
+      return NLXManager.instance;
+    }
+
     if (!NLXManager.instance) {
       NLXManager.instance = new NLXManager();
     }
@@ -15,14 +27,34 @@ class NLXManager {
   }
 
   public async initialize(): Promise<void> {
-    // Prevent multiple initializations
-    if (this.isInitialized || this.isInitializing) {
-      return;
+    // If already initialized, return immediately
+    if (this.isInitialized && this.touchpoint) {
+      return Promise.resolve();
     }
 
+    // If currently initializing, return the existing promise
+    if (this.isInitializing && this.initPromise) {
+      return this.initPromise;
+    }
+
+    // Create new initialization promise
+    this.initPromise = this._doInitialize();
+    return this.initPromise;
+  }
+
+  private async _doInitialize(): Promise<void> {
     this.isInitializing = true;
 
     try {
+      // Check if widget already exists in DOM
+      const existingWidget = document.querySelector('.nlx-touchpoint-widget, .nlx-touchpoint-container');
+      if (existingWidget && this.touchpoint) {
+        console.log('NLX Widget already exists in DOM, reusing...');
+        this.isInitialized = true;
+        return;
+      }
+
+      console.log('Initializing NLX Widget...');
       const { create } = await import("@nlxai/touchpoint-ui");
 
       this.touchpoint = await create({
@@ -41,20 +73,32 @@ class NLXManager {
       });
 
       this.isInitialized = true;
+      
+      // Store reference on window for persistence
+      if (typeof window !== 'undefined') {
+        (window as any).__nlxTouchpoint = this.touchpoint;
+      }
+
       console.log('NLX Widget initialized successfully');
     } catch (error) {
       console.error('Failed to initialize NLX Widget:', error);
+      this.isInitialized = false;
     } finally {
       this.isInitializing = false;
     }
   }
 
   public getTouchpoint() {
+    // Try to get from window if not available locally
+    if (!this.touchpoint && typeof window !== 'undefined') {
+      this.touchpoint = (window as any).__nlxTouchpoint;
+    }
     return this.touchpoint;
   }
 
   public isReady(): boolean {
-    return this.isInitialized && this.touchpoint !== null;
+    const touchpoint = this.getTouchpoint();
+    return this.isInitialized && touchpoint !== null;
   }
 
   public destroy(): void {
@@ -64,6 +108,18 @@ class NLXManager {
     this.touchpoint = null;
     this.isInitialized = false;
     this.isInitializing = false;
+    this.initPromise = null;
+    
+    // Clean up window references
+    if (typeof window !== 'undefined') {
+      delete (window as any).__nlxTouchpoint;
+      delete (window as any).__nlxManager;
+    }
+  }
+
+  // Method to check if widget exists in DOM
+  public widgetExistsInDOM(): boolean {
+    return !!document.querySelector('.nlx-touchpoint-widget, .nlx-touchpoint-container');
   }
 }
 

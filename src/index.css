@@ -6,6 +6,7 @@
 .nlx-touchpoint-widget {
   z-index: 9999 !important;
   position: fixed !important;
+  pointer-events: auto !important;
 }
 
 /* Custom styling for the voice widget to match the site theme */
@@ -20,11 +21,25 @@
   z-index: 9999 !important;
 }
 
-/* Ensure widget persists across page transitions */
+/* Prevent widget from being affected by React re-renders */
 .nlx-touchpoint-widget,
 .nlx-touchpoint-container {
   transition: none !important;
   animation: none !important;
+}
+
+/* Ensure widget stays visible during route transitions */
+.nlx-touchpoint-widget {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+/* Additional persistence styles */
+.nlx-touchpoint-widget,
+.nlx-touchpoint-container {
+  will-change: auto !important;
+  transform: none !important;
 }
 
 /* Respect reduced motion preferences */
