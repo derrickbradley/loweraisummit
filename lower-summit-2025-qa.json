@@ -1,0 +1,764 @@
+[
+  {
+    "question": "What is Lower Summit 2025?",
+    "answer": "Lower Summit 2025 is the premier AI conference where intelligence meets innovation. It's a two-day event bringing together AI professionals, researchers, and industry leaders."
+  },
+  {
+    "question": "When is Lower Summit 2025?",
+    "answer": "Lower Summit 2025 takes place on July 8-9, 2025."
+  },
+  {
+    "question": "Where is Lower Summit 2025 held?",
+    "answer": "The conference is held in San Francisco, CA."
+  },
+  {
+    "question": "How many attendees are expected?",
+    "answer": "The conference expects 500+ AI professionals."
+  },
+  {
+    "question": "How many speakers will be presenting?",
+    "answer": "There are 50+ AI experts speaking at the conference."
+  },
+  {
+    "question": "How many sessions are planned?",
+    "answer": "There are 24 AI sessions planned across the two days."
+  },
+  {
+    "question": "What is the satisfaction rate from previous events?",
+    "answer": "Previous events have achieved a 98% AI satisfaction rate."
+  },
+  {
+    "question": "How many countries will be represented?",
+    "answer": "Attendees from 15+ countries are expected to participate."
+  },
+  {
+    "question": "When is Sarah Chen's session?",
+    "answer": "Sarah Chen is speaking at 9:00 AM on July 8th. Her keynote explores cutting-edge technologies shaping our future including AI, quantum computing, and biotechnology.",
+    "nlx:sourceTitle": "Opening Keynote: The Future of Tech",
+    "nlx:destination": "/session/1"
+  },
+  {
+    "question": "When is Marcus Rodriguez's session?",
+    "answer": "Marcus Rodriguez is speaking at 10:30 AM on July 8th. His workshop provides practical strategies for building products that scale from startup to enterprise.",
+    "nlx:sourceTitle": "Building Products That Scale",
+    "nlx:destination": "/session/2"
+  },
+  {
+    "question": "When is Dr. Aisha Patel's session?",
+    "answer": "Dr. Aisha Patel is speaking at 11:30 AM on July 8th. Her session explores how deep learning transforms healthcare through medical imaging and drug discovery.",
+    "nlx:sourceTitle": "Deep Learning in Healthcare",
+    "nlx:destination": "/session/3"
+  },
+  {
+    "question": "When is Dr. Emily Watson's session?",
+    "answer": "Dr. Emily Watson is speaking at 2:00 PM on July 8th. Her keynote presents a comprehensive vision of AI development over the next decade.",
+    "nlx:sourceTitle": "AI in the Next Decade",
+    "nlx:destination": "/session/5"
+  },
+  {
+    "question": "When is Michael Thompson's session?",
+    "answer": "Michael Thompson is speaking at 3:00 PM on July 8th. His workshop covers computer vision technologies powering autonomous vehicles including object detection and sensor fusion.",
+    "nlx:sourceTitle": "Computer Vision for Autonomous Vehicles",
+    "nlx:destination": "/session/6"
+  },
+  {
+    "question": "When is James Park's session?",
+    "answer": "James Park is speaking at 3:30 PM on July 8th. His workshop teaches proven patterns for building scalable, reliable cloud architectures serving millions.",
+    "nlx:sourceTitle": "Cloud Architecture Best Practices",
+    "nlx:destination": "/session/7"
+  },
+  {
+    "question": "When is Dr. Lisa Chang's session?",
+    "answer": "Dr. Lisa Chang is speaking at 4:30 PM on July 8th. Her session explores quantum machine learning algorithms and their applications in optimization.",
+    "nlx:sourceTitle": "Quantum Machine Learning",
+    "nlx:destination": "/session/8"
+  },
+  {
+    "question": "When is Robert Kim's session?",
+    "answer": "Robert Kim is speaking at 5:30 PM on July 8th. His workshop covers advanced NLP techniques including transformer architectures and large language models.",
+    "nlx:sourceTitle": "Advanced Natural Language Processing",
+    "nlx:destination": "/session/9"
+  },
+  {
+    "question": "When is Dr. Maria Santos's session?",
+    "answer": "Dr. Maria Santos is speaking at 9:00 AM on July 9th. Her keynote addresses critical ethical considerations in AI development including bias mitigation.",
+    "nlx:sourceTitle": "AI Ethics and Responsible Development",
+    "nlx:destination": "/session/11"
+  },
+  {
+    "question": "When is David Wilson's session?",
+    "answer": "David Wilson is speaking at 10:00 AM on July 9th. His workshop explores AI applications transforming financial services including fraud detection and trading.",
+    "nlx:sourceTitle": "AI in Financial Services",
+    "nlx:destination": "/session/12"
+  },
+  {
+    "question": "When is Dr. Jennifer Lee's session?",
+    "answer": "Dr. Jennifer Lee is speaking at 10:30 AM on July 9th. Her session demonstrates how AI revolutionizes robotics through advanced perception and control systems.",
+    "nlx:sourceTitle": "AI-Powered Robotics",
+    "nlx:destination": "/session/13"
+  },
+  {
+    "question": "When is Alex Johnson's session?",
+    "answer": "Alex Johnson is speaking at 11:30 AM on July 9th. His workshop covers essential MLOps practices for deploying and maintaining machine learning systems.",
+    "nlx:sourceTitle": "MLOps and Production Systems",
+    "nlx:destination": "/session/14"
+  },
+  {
+    "question": "When is Dr. Priya Sharma's session?",
+    "answer": "Dr. Priya Sharma is speaking at 2:00 PM on July 9th. Her workshop covers advanced computer vision techniques including object detection and segmentation.",
+    "nlx:sourceTitle": "Advanced Computer Vision Techniques",
+    "nlx:destination": "/session/16"
+  },
+  {
+    "question": "When is Thomas Brown's session?",
+    "answer": "Thomas Brown is speaking at 2:30 PM on July 9th. His workshop develops comprehensive AI product strategies bridging technical capabilities with market needs.",
+    "nlx:sourceTitle": "AI Product Strategy",
+    "nlx:destination": "/session/17"
+  },
+  {
+    "question": "When is Dr. Rachel Green's session?",
+    "answer": "Dr. Rachel Green is speaking at 3:30 PM on July 9th. Her workshop covers reinforcement learning applications in gaming, robotics, and recommendation systems.",
+    "nlx:sourceTitle": "Reinforcement Learning Applications",
+    "nlx:destination": "/session/18"
+  },
+  {
+    "question": "When is Kevin Zhang's session?",
+    "answer": "Kevin Zhang is speaking at 4:00 PM on July 9th. His workshop explores deploying AI on edge devices covering model optimization and hardware acceleration.",
+    "nlx:sourceTitle": "Edge AI and IoT",
+    "nlx:destination": "/session/19"
+  },
+  {
+    "question": "When is Dr. Amanda Foster's session?",
+    "answer": "Dr. Amanda Foster is speaking at 4:30 PM on July 9th. Her workshop covers generative AI including GANs, diffusion models, and creative applications.",
+    "nlx:sourceTitle": "Generative AI and Creative Applications",
+    "nlx:destination": "/session/20"
+  },
+  {
+    "question": "Who is Andrei Papancea?",
+    "answer": "Andrei Papancea is the CEO of NLX and leads the company in revolutionizing conversational AI and natural language experiences for enterprises.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Nikesh Arora?",
+    "answer": "Nikesh Arora is the Chairman & CEO of Palo Alto Networks, leading the company in cybersecurity innovation to protect organizations in the digital age.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Andrew Feldman?",
+    "answer": "Andrew Feldman is the CEO & Founder of Cerebras, who founded the company to build the world's largest computer chips for AI workloads.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Benoit Dageville?",
+    "answer": "Benoit Dageville is the Founder & Board Member of Snowflake, who co-founded the company and revolutionized cloud data platforms for the modern enterprise.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Jonathan Ross?",
+    "answer": "Jonathan Ross is the CEO & Founder of Groq, leading the company in developing ultra-fast AI inference chips and systems.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Thomas Wolf?",
+    "answer": "Thomas Wolf is the Co-Founder & CSO of Hugging Face, who co-founded the company to democratize AI through open-source machine learning.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Tao Zhang?",
+    "answer": "Tao Zhang is the Co-Founder & CPO of Manus AI, who co-founded the company to advance robotics and AI integration for industrial applications.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Matt Hicks?",
+    "answer": "Matt Hicks is the President & CEO of Red Hat, leading the company in open-source enterprise solutions and hybrid cloud technologies.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Varun Mohan?",
+    "answer": "Varun Mohan is the CEO & Founder of Windsurf, who founded the company to revolutionize AI-powered development tools and workflows.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Olivier Pomel?",
+    "answer": "Olivier Pomel is the CEO & Co-Founder of Datadog, who co-founded the monitoring and analytics platform for cloud applications.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Clara Chappaz?",
+    "answer": "Clara Chappaz is the Minister Delegate for AI & Digital Affairs in the French Government, leading France's AI and digital policy initiatives.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Daniel Dines?",
+    "answer": "Daniel Dines is the Founder & CEO of UiPath, who founded the company and leads the robotic process automation revolution.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Rajiv Ramaswami?",
+    "answer": "Rajiv Ramaswami is the President & CEO of Nutanix, leading the company in enterprise cloud computing and hyperconverged infrastructure.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Rodrigo Liang?",
+    "answer": "Rodrigo Liang is the Co-Founder & CEO of SambaNova Systems, who co-founded the company to build AI computing platforms for enterprise applications.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Charles Liang?",
+    "answer": "Charles Liang is the CEO & Founder of Supermicro, who founded the company and leads in high-performance computing and server solutions.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Alexis Ohanian?",
+    "answer": "Alexis Ohanian is the Founder of Seven Seven Six and co-founder of Reddit, who now invests in technology startups through Seven Seven Six.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Anton Osika?",
+    "answer": "Anton Osika is the CEO & Founder of Lovable, who founded the company to create AI-powered tools for software development and automation.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Alison Wagonfeld?",
+    "answer": "Alison Wagonfeld is the CMO of Google Cloud, leading marketing for Google Cloud and driving adoption of cloud and AI technologies.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Alex Laubscher?",
+    "answer": "Alex Laubscher is the CTO of Windsurf, serving as CTO and building next-generation AI development platforms.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is May Habib?",
+    "answer": "May Habib is the CEO & Co-Founder of Writer, who co-founded the company to provide AI writing assistance for enterprises and teams.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Shaun Maguire?",
+    "answer": "Shaun Maguire is a Partner at Sequoia Capital, investing in breakthrough technology companies.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Stephanie Cohen?",
+    "answer": "Stephanie Cohen is the CSO of Cloudflare, leading strategy at the company that builds infrastructure for a better internet.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is George Kurian?",
+    "answer": "George Kurian is the CEO of NetApp, leading the company in data management and storage solutions for the hybrid cloud.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Gautier Cloix?",
+    "answer": "Gautier Cloix is the CEO of H Company, leading the company in developing innovative AI solutions for various industries.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Jonathan Siddharth?",
+    "answer": "Jonathan Siddharth is the Founder & CEO of Turing, who founded the company to connect companies with top software developers worldwide.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Tony Kim?",
+    "answer": "Tony Kim is the Head of Fundamental Equities Global Technology at BlackRock, leading technology investments at one of the world's largest asset managers.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Amit Zavery?",
+    "answer": "Amit Zavery is the President, CPO & COO of ServiceNow, leading product and operations to transform enterprise workflows with AI.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Peter McKay?",
+    "answer": "Peter McKay is the CEO of Snyk, leading the company in developer security to help teams build secure applications.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Anjney Midha?",
+    "answer": "Anjney Midha is a General Partner at Andreessen Horowitz, investing in breakthrough technology companies.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Andrey Khusid?",
+    "answer": "Andrey Khusid is the Founder & CEO of Miro, who founded the collaborative whiteboard platform used by millions worldwide.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Eiso Kant?",
+    "answer": "Eiso Kant is the CTO & Co-Founder of Poolside AI, who co-founded the company to advance AI-powered software development.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Tanuja Randery?",
+    "answer": "Tanuja Randery is the Managing Director EMEA at AWS, leading AWS operations across Europe, Middle East, and Africa.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Chase Lochmiller?",
+    "answer": "Chase Lochmiller is the Co-Founder, CEO & Chairman of Crusoe, who co-founded the company to provide sustainable computing infrastructure for AI workloads.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Stephane Kasriel?",
+    "answer": "Stephane Kasriel is the VP Product Management at Meta FAIR, leading product management at Meta's Fundamental AI Research division.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Robin Rombach?",
+    "answer": "Robin Rombach is the CEO & Co-Founder of Black Forest Labs, who co-founded the company to advance generative AI and computer vision.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Fabricio Bloisi?",
+    "answer": "Fabricio Bloisi is the CEO of Prosus Group, leading one of the largest technology investors globally.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Delian Asparouhov?",
+    "answer": "Delian Asparouhov is a Partner at Founders Fund, investing in breakthrough technology companies.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Tyson Singer?",
+    "answer": "Tyson Singer is the Head of Technology & Platforms at Spotify, leading technology and platform development to power music discovery.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Ross Mason?",
+    "answer": "Ross Mason is the Co-Founder of MuleSoft, who co-founded the company and revolutionized enterprise integration and API management.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Ori Goshen?",
+    "answer": "Ori Goshen is the Co-Founder & Co-CEO of AI21Labs, who co-founded the company to develop foundation models for language understanding.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Mati Staniszewski?",
+    "answer": "Mati Staniszewski is the CEO & Co-Founder of Eleven Labs, who co-founded the company to create realistic AI voice synthesis technology.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Ankit Patel?",
+    "answer": "Ankit Patel is the Sr. Director Developer Marketing at NVIDIA, leading developer marketing to advance AI computing platforms.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Vipul Ved Prakash?",
+    "answer": "Vipul Ved Prakash is the CEO & Co-Founder of Together AI, who co-founded the company to democratize access to large language models.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Amit Bendov?",
+    "answer": "Amit Bendov is the Co-Founder & CEO of Gong, who co-founded the company to revolutionize sales with AI-powered conversation analytics.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Guillaume Princen?",
+    "answer": "Guillaume Princen is the Head of EMEA at Anthropic, leading Anthropic's operations across Europe, Middle East, and Africa.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Mike Mattacola?",
+    "answer": "Mike Mattacola is the CBO of CoreWeave, leading business operations at the company that provides GPU cloud infrastructure for AI.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Illia Polosukhin?",
+    "answer": "Illia Polosukhin is the Co-Founder of NEAR Protocol, who co-founded the developer-friendly blockchain platform.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Peter Sarlin?",
+    "answer": "Peter Sarlin is the CEO & Co-Founder of Silo AI, who co-founded Europe's largest private AI lab.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Paul Bloch?",
+    "answer": "Paul Bloch is the Co-Founder & President of DDN, who co-founded the company to provide high-performance storage solutions for AI workloads.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Who is Stephen Balaban?",
+    "answer": "Stephen Balaban is the Co-Founder & CEO of Lambda, who co-founded the company to provide GPU cloud computing for AI research and training.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "What sessions are available on Day 1?",
+    "answer": "Day 1 (July 8) includes sessions on building scalable products, deep learning in healthcare, AI in the next decade, computer vision for autonomous vehicles, cloud architecture, quantum machine learning, advanced NLP, and networking events.",
+    "nlx:sourceTitle": "Conference Schedule",
+    "nlx:destination": "/schedule"
+  },
+  {
+    "question": "What sessions are available on Day 2?",
+    "answer": "Day 2 (July 9) includes sessions on AI ethics, AI in financial services, AI-powered robotics, MLOps, computer vision techniques, AI product strategy, reinforcement learning, edge AI, generative AI, AI security, federated learning, and startup success stories.",
+    "nlx:sourceTitle": "Conference Schedule",
+    "nlx:destination": "/schedule"
+  },
+  {
+    "question": "What types of sessions are offered?",
+    "answer": "The conference offers keynotes, workshops, panels, and networking sessions.",
+    "nlx:sourceTitle": "Conference Schedule",
+    "nlx:destination": "/schedule"
+  },
+  {
+    "question": "Where do sessions take place?",
+    "answer": "Sessions take place in the Main Auditorium, Conference Rooms A, B, and C, Main Hall, and Rooftop Terrace.",
+    "nlx:sourceTitle": "Conference Schedule",
+    "nlx:destination": "/schedule"
+  },
+  {
+    "question": "Can I register for individual sessions?",
+    "answer": "Yes, you can register for individual sessions using your email address through the session registration system.",
+    "nlx:sourceTitle": "Conference Schedule",
+    "nlx:destination": "/schedule"
+  },
+  {
+    "question": "How do I register for a session?",
+    "answer": "Click the 'Register for Session' button on any session, enter your email address, and submit the form. You'll receive a confirmation email.",
+    "nlx:sourceTitle": "Conference Schedule",
+    "nlx:destination": "/schedule"
+  },
+  {
+    "question": "Can I cancel my session registration?",
+    "answer": "Yes, you can cancel your registration by entering the same email address you used to register and clicking the cancel option.",
+    "nlx:sourceTitle": "Conference Schedule",
+    "nlx:destination": "/schedule"
+  },
+  {
+    "question": "What ticket types are available?",
+    "answer": "Three ticket types are available: Early Bird ($299, originally $399), Standard ($399), and VIP ($799).",
+    "nlx:sourceTitle": "Choose Your Ticket",
+    "nlx:destination": "/tickets"
+  },
+  {
+    "question": "What's included in the Early Bird ticket?",
+    "answer": "Early Bird tickets include access to all sessions, networking reception, digital conference materials, and breakfast and lunch.",
+    "nlx:sourceTitle": "Choose Your Ticket",
+    "nlx:destination": "/tickets"
+  },
+  {
+    "question": "What's included in the Standard ticket?",
+    "answer": "Standard tickets include access to all sessions, networking reception, digital conference materials, and breakfast and lunch.",
+    "nlx:sourceTitle": "Choose Your Ticket",
+    "nlx:destination": "/tickets"
+  },
+  {
+    "question": "What's included in the VIP ticket?",
+    "answer": "VIP tickets include access to all sessions, VIP networking reception, physical conference materials, all meals, meet & greet with speakers, and priority seating.",
+    "nlx:sourceTitle": "Choose Your Ticket",
+    "nlx:destination": "/tickets"
+  },
+  {
+    "question": "How many Early Bird tickets are available?",
+    "answer": "50 Early Bird tickets are available.",
+    "nlx:sourceTitle": "Choose Your Ticket",
+    "nlx:destination": "/tickets"
+  },
+  {
+    "question": "How many Standard tickets are available?",
+    "answer": "200 Standard tickets are available.",
+    "nlx:sourceTitle": "Choose Your Ticket",
+    "nlx:destination": "/tickets"
+  },
+  {
+    "question": "How many VIP tickets are available?",
+    "answer": "25 VIP tickets are available.",
+    "nlx:sourceTitle": "Choose Your Ticket",
+    "nlx:destination": "/tickets"
+  },
+  {
+    "question": "Which ticket is most popular?",
+    "answer": "The Standard ticket is marked as the most popular option.",
+    "nlx:sourceTitle": "Choose Your Ticket",
+    "nlx:destination": "/tickets"
+  },
+  {
+    "question": "What is the conference venue like?",
+    "answer": "The conference features a state-of-the-art venue with a main auditorium, multiple conference rooms, networking spaces, and a rooftop terrace."
+  },
+  {
+    "question": "Are there networking opportunities?",
+    "answer": "Yes, there are networking receptions, lunch breaks, and dedicated networking sessions throughout the conference."
+  },
+  {
+    "question": "What topics are covered in the blog?",
+    "answer": "The blog covers AI insights, speaker announcements, technology trends, business applications, and conference updates.",
+    "nlx:sourceTitle": "Latest Insights",
+    "nlx:destination": "/blog"
+  },
+  {
+    "question": "Who can I contact for more information?",
+    "answer": "You can contact the conference team at info@raisesummit.com or call +1 (555) 123-4567.",
+    "nlx:sourceTitle": "Get In Touch",
+    "nlx:destination": "/contact"
+  },
+  {
+    "question": "What is the conference address?",
+    "answer": "The conference address is 123 Innovation Drive, San Francisco, CA 94105.",
+    "nlx:sourceTitle": "Get In Touch",
+    "nlx:destination": "/contact"
+  },
+  {
+    "question": "How can I become a sponsor?",
+    "answer": "You can become a sponsor by viewing the sponsorship packages and contacting the team through the website."
+  },
+  {
+    "question": "What sponsorship tiers are available?",
+    "answer": "Sponsorship tiers include Platinum, Gold, Silver, and Bronze levels."
+  },
+  {
+    "question": "Who are the current sponsors?",
+    "answer": "Current sponsors include TechCorp AI, DataFlow Systems, CloudAI Solutions, Neural Networks Inc, AutoML Pro, VisionTech, RoboMind, QuantumAI Labs, EdgeCompute, NLP Dynamics, AI Ethics Foundation, and StartupAI Accelerator."
+  },
+  {
+    "question": "Is there a code of conduct?",
+    "answer": "Yes, the conference has a code of conduct that all attendees must follow."
+  },
+  {
+    "question": "What are the refund policies?",
+    "answer": "Refund policies are available in the legal section of the website."
+  },
+  {
+    "question": "Are there privacy policies?",
+    "answer": "Yes, comprehensive privacy policies are available detailing how attendee data is handled."
+  },
+  {
+    "question": "What are the terms of service?",
+    "answer": "Terms of service are available outlining the conditions for conference attendance and website use."
+  },
+  {
+    "question": "How can I stay updated?",
+    "answer": "You can subscribe to the newsletter for the latest updates and announcements about the conference.",
+    "nlx:sourceTitle": "Get In Touch",
+    "nlx:destination": "/contact"
+  },
+  {
+    "question": "What social media channels are available?",
+    "answer": "The conference is active on Twitter, LinkedIn, Instagram, and YouTube."
+  },
+  {
+    "question": "What makes this conference unique?",
+    "answer": "Lower Summit 2025 is unique for its focus on AI innovation, world-class speakers, hands-on workshops, and networking opportunities with industry leaders."
+  },
+  {
+    "question": "What is the conference format?",
+    "answer": "The conference features a mix of keynote presentations, interactive workshops, panel discussions, and networking sessions over two days."
+  },
+  {
+    "question": "Are there hands-on workshops?",
+    "answer": "Yes, the conference includes hands-on workshops covering various AI topics like deep learning, computer vision, NLP, and more.",
+    "nlx:sourceTitle": "Conference Schedule",
+    "nlx:destination": "/schedule"
+  },
+  {
+    "question": "What industries are represented?",
+    "answer": "Industries represented include technology, healthcare, finance, robotics, cybersecurity, cloud computing, and many others.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Is this suitable for beginners?",
+    "answer": "The conference offers content for various skill levels, from beginners to advanced practitioners in AI and technology."
+  },
+  {
+    "question": "Are there opportunities to meet speakers?",
+    "answer": "VIP ticket holders get meet & greet opportunities with speakers, and there are networking sessions where all attendees can interact with speakers.",
+    "nlx:sourceTitle": "Choose Your Ticket",
+    "nlx:destination": "/tickets"
+  },
+  {
+    "question": "What is the dress code?",
+    "answer": "The conference maintains a professional atmosphere, so business casual to business formal attire is recommended."
+  },
+  {
+    "question": "Are meals provided?",
+    "answer": "Yes, breakfast and lunch are included with all ticket types, and VIP tickets include all meals.",
+    "nlx:sourceTitle": "Choose Your Ticket",
+    "nlx:destination": "/tickets"
+  },
+  {
+    "question": "Is there Wi-Fi available?",
+    "answer": "Yes, high-speed Wi-Fi is available throughout the conference venue."
+  },
+  {
+    "question": "Can I get a certificate of attendance?",
+    "answer": "Yes, digital certificates of attendance are provided to all registered attendees."
+  },
+  {
+    "question": "Are sessions recorded?",
+    "answer": "Information about session recordings is available in the digital conference materials provided to attendees."
+  },
+  {
+    "question": "What COVID-19 safety measures are in place?",
+    "answer": "Current health and safety guidelines will be followed as per local regulations at the time of the event."
+  },
+  {
+    "question": "Is there parking available?",
+    "answer": "Parking information and arrangements are provided to registered attendees closer to the event date."
+  },
+  {
+    "question": "Are there accommodation recommendations?",
+    "answer": "Hotel and accommodation recommendations are provided to out-of-town attendees upon registration."
+  },
+  {
+    "question": "What is the cancellation policy for the event?",
+    "answer": "Event cancellation policies are outlined in the terms of service and communicated to ticket holders."
+  },
+  {
+    "question": "How early should I arrive?",
+    "answer": "It's recommended to arrive 30-60 minutes before the first session to allow time for registration and networking."
+  },
+  {
+    "question": "Is there a mobile app for the conference?",
+    "answer": "Information about mobile apps and digital tools will be provided to registered attendees."
+  },
+  {
+    "question": "Can I bring guests?",
+    "answer": "Guest policies depend on the ticket type purchased. VIP tickets may include guest privileges.",
+    "nlx:sourceTitle": "Choose Your Ticket",
+    "nlx:destination": "/tickets"
+  },
+  {
+    "question": "Are there student discounts?",
+    "answer": "Student discount information is available by contacting the conference team directly.",
+    "nlx:sourceTitle": "Get In Touch",
+    "nlx:destination": "/contact"
+  },
+  {
+    "question": "Is there live streaming available?",
+    "answer": "Live streaming options may be available for certain sessions. Check with the organizers for details."
+  },
+  {
+    "question": "What happens if I miss a session?",
+    "answer": "Digital materials and session information are provided to help attendees catch up on missed content."
+  },
+  {
+    "question": "Are there translation services?",
+    "answer": "The conference is conducted in English. Translation services may be available upon special request."
+  },
+  {
+    "question": "What accessibility features are available?",
+    "answer": "The venue is fully accessible, and special accommodations can be arranged by contacting the organizers.",
+    "nlx:sourceTitle": "Get In Touch",
+    "nlx:destination": "/contact"
+  },
+  {
+    "question": "Can I volunteer at the conference?",
+    "answer": "Volunteer opportunities may be available. Contact the conference team for more information.",
+    "nlx:sourceTitle": "Get In Touch",
+    "nlx:destination": "/contact"
+  },
+  {
+    "question": "What is the conference's environmental policy?",
+    "answer": "The conference promotes sustainability through digital materials and environmentally conscious practices."
+  },
+  {
+    "question": "Are there startup pitch opportunities?",
+    "answer": "Startup opportunities and pitch sessions may be part of the networking and panel discussions.",
+    "nlx:sourceTitle": "Conference Schedule",
+    "nlx:destination": "/schedule"
+  },
+  {
+    "question": "What is the speaker selection process?",
+    "answer": "Speakers are selected based on their expertise, industry leadership, and ability to provide valuable insights to attendees.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "How can I provide feedback?",
+    "answer": "Feedback can be provided through the contact form or directly to the conference team via email.",
+    "nlx:sourceTitle": "Get In Touch",
+    "nlx:destination": "/contact"
+  },
+  {
+    "question": "What makes the speakers unique?",
+    "answer": "The speakers represent leading companies and organizations in AI, from startups to Fortune 500 companies, government, and research institutions.",
+    "nlx:sourceTitle": "Meet Our Speakers",
+    "nlx:destination": "/speakers"
+  },
+  {
+    "question": "Are there panel discussions?",
+    "answer": "Yes, panel discussions are included, such as 'Startup Success Stories' featuring multiple entrepreneurs.",
+    "nlx:sourceTitle": "Conference Schedule",
+    "nlx:destination": "/schedule"
+  },
+  {
+    "question": "What is the conference's mission?",
+    "answer": "The mission is to bring together AI professionals, researchers, and innovators to share knowledge, network, and advance the field of artificial intelligence."
+  },
+  {
+    "question": "How long has this conference been running?",
+    "answer": "This appears to be a continuation of previous successful conferences, with high satisfaction rates from past events."
+  },
+  {
+    "question": "What is the target audience?",
+    "answer": "The target audience includes AI professionals, researchers, engineers, product managers, executives, investors, and anyone interested in AI innovation."
+  },
+  {
+    "question": "Are there exhibition areas?",
+    "answer": "The conference includes spaces for sponsors and partners to showcase their AI solutions and innovations."
+  },
+  {
+    "question": "What is the conference's impact on the AI community?",
+    "answer": "The conference serves as a catalyst for AI innovation, fostering connections and collaborations that advance the field."
+  },
+  {
+    "question": "How can I stay connected after the conference?",
+    "answer": "Attendees can stay connected through the conference's social media channels, newsletter, and networking platforms."
+  },
+  {
+    "question": "What follow-up resources are provided?",
+    "answer": "Digital conference materials, speaker presentations, and continued access to the conference community are typically provided."
+  }
+]

@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ensure the NLX widget has proper z-index and positioning */
+.nlx-touchpoint-widget {
+  z-index: 9999 !important;
+}
+
+/* Custom styling for the voice widget to match the site theme */
+.nlx-voice-widget {
+  font-family: "Inter", "Neue Haas Grotesk", sans-serif !important;
+}
+
+/* Ensure the widget doesn't interfere with site navigation */
+.nlx-touchpoint-container {
+  pointer-events: auto !important;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Disable confetti and complex animations for reduced motion */
+  .confetti-particle {
+    display: none !important;
+  }
+}
