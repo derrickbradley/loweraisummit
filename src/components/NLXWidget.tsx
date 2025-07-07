@@ -1,11 +1,14 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
+
+// Global flag to ensure widget is only initialized once per browser session
+let globalWidgetInitialized = false;
 
 export const NLXWidget: React.FC = () => {
-  const widgetInitialized = useRef(false);
-
   useEffect(() => {
-    // Prevent multiple initializations
-    if (widgetInitialized.current) return;
+    // Only initialize if not already done globally
+    if (globalWidgetInitialized) {
+      return;
+    }
 
     const initializeNLX = async () => {
       try {
@@ -13,6 +16,14 @@ export const NLXWidget: React.FC = () => {
         const isWidgetDisabled = localStorage.getItem('nlx-widget-disabled') === 'true';
         if (isWidgetDisabled) {
           console.log('NLX Widget disabled by user preference');
+          return;
+        }
+
+        // Check if widget already exists in DOM (from previous navigation)
+        const existingWidget = document.querySelector('[data-nlx-touchpoint]');
+        if (existingWidget) {
+          console.log('NLX Widget already exists in DOM, skipping initialization');
+          globalWidgetInitialized = true;
           return;
         }
 
@@ -33,56 +44,57 @@ export const NLXWidget: React.FC = () => {
           bidirectional: {}
         });
 
-        // Mark as initialized
-        widgetInitialized.current = true;
+        // Mark as initialized globally
+        globalWidgetInitialized = true;
 
         // Store widget state as enabled
         localStorage.setItem('nlx-widget-enabled', 'true');
 
         console.log('NLX Widget initialized successfully');
+
+        // Add event listener to detect when widget processes navigation commands
+        // This helps maintain widget state during voice-triggered navigation
+        if (touchpoint && typeof touchpoint.on === 'function') {
+          touchpoint.on('navigate', (event: any) => {
+            console.log('NLX Widget triggered navigation:', event);
+            // Widget should remain active during navigation
+          });
+        }
+
       } catch (error) {
         console.error('Failed to initialize NLX Widget:', error);
+        globalWidgetInitialized = false; // Reset on error to allow retry
       }
     };
 
     initializeNLX();
 
-    // Cleanup function
-    return () => {
-      // Don't destroy the widget on unmount to maintain persistence
-      // Only clean up if the component is being permanently removed
-    };
-  }, []);
+    // Global methods for widget control
+    if (!(window as any).disableNLXWidget) {
+      (window as any).disableNLXWidget = () => {
+        localStorage.setItem('nlx-widget-disabled', 'true');
+        localStorage.removeItem('nlx-widget-enabled');
+        
+        // Remove widget from DOM
+        const widgetElements = document.querySelectorAll('[data-nlx-touchpoint]');
+        widgetElements.forEach(element => element.remove());
+        
+        globalWidgetInitialized = false;
+        console.log('NLX Widget disabled by user');
+      };
 
-  // Add global method to allow users to disable the widget
-  useEffect(() => {
-    // Expose method to disable widget globally
-    (window as any).disableNLXWidget = () => {
-      localStorage.setItem('nlx-widget-disabled', 'true');
-      localStorage.removeItem('nlx-widget-enabled');
-      
-      // Remove widget from DOM if it exists
-      const widgetElements = document.querySelectorAll('[data-nlx-touchpoint]');
-      widgetElements.forEach(element => element.remove());
-      
-      console.log('NLX Widget disabled by user');
-    };
+      (window as any).enableNLXWidget = () => {
+        localStorage.removeItem('nlx-widget-disabled');
+        localStorage.setItem('nlx-widget-enabled', 'true');
+        globalWidgetInitialized = false; // Reset to allow reinitialization
+        
+        // Reload page to reinitialize widget
+        window.location.reload();
+      };
+    }
 
-    // Expose method to re-enable widget
-    (window as any).enableNLXWidget = () => {
-      localStorage.removeItem('nlx-widget-disabled');
-      localStorage.setItem('nlx-widget-enabled', 'true');
-      
-      // Reload page to reinitialize widget
-      window.location.reload();
-    };
-
-    // Cleanup global methods on unmount
-    return () => {
-      delete (window as any).disableNLXWidget;
-      delete (window as any).enableNLXWidget;
-    };
-  }, []);
+    // No cleanup function - let the widget persist across component unmounts
+  }, []); // Empty dependency array ensures this only runs once
 
   return null;
 };

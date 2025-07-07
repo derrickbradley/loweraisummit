@@ -5,6 +5,7 @@
 /* Ensure the NLX widget has proper z-index and positioning */
 .nlx-touchpoint-widget {
   z-index: 9999 !important;
+  position: fixed !important;
 }
 
 /* Custom styling for the voice widget to match the site theme */
@@ -15,6 +16,13 @@
 /* Ensure the widget doesn't interfere with site navigation */
 .nlx-touchpoint-container {
   pointer-events: auto !important;
+  position: fixed !important;
+}
+
+/* Prevent widget from being affected by React re-renders */
+[data-nlx-touchpoint] {
+  position: fixed !important;
+  z-index: 9999 !important;
 }
 
 /* Respect reduced motion preferences */
