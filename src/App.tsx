@@ -1,8 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useEffect } from 'react';
 import { Header } from './components/Header';
-import { NLXWidget } from './components/NLXWidget';
 import { Footer } from './components/Footer';
 import { HomePage } from './pages/HomePage';
 import { SpeakersPage } from './pages/SpeakersPage';
@@ -11,27 +9,9 @@ import { SessionPage } from './pages/SessionPage';
 import { TicketsPage } from './pages/TicketsPage';
 import { BlogPage } from './pages/BlogPage';
 import { ContactPage } from './pages/ContactPage';
-
+import { NLXWidget } from './components/NLXWidget';
 
 function App() {
-  useEffect(() => {
-    // Listen for popstate events (back/forward navigation)
-    const handlePopState = () => {
-      console.log('Navigation detected via popstate');
-      // Ensure widget persists during browser navigation
-      const widgetElement = document.querySelector('[data-nlx-touchpoint]');
-      if (widgetElement) {
-        widgetElement.setAttribute('data-persistent', 'true');
-      }
-    };
-
-    window.addEventListener('popstate', handlePopState);
-    
-    return () => {
-      window.removeEventListener('popstate', handlePopState);
-    };
-  }, []);
-
   return (
     <Router>
       <div className="min-h-screen bg-white">
