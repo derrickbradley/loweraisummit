@@ -23,7 +23,6 @@ export const NLXWidget: React.FC = () => {
         colorMode: "dark",
         input: "voiceMini",
         theme: {"fontFamily":"\"Neue Haas Grotesk\", sans-serif","accent":"#AECAFF"},
-        bidirectional: {}
         bidirectional: {
           automaticContext: false,
           navigation: navigation,
