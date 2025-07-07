@@ -1,5 +1,4 @@
-import React, { createContext, useContext, ReactNode, useEffect, useMemo } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import React, { createContext, useContext, ReactNode, useEffect } from 'react';
 
 interface NavigationContextType {
   navigate: (path: string, options?: { replace?: boolean }) => void;
@@ -17,57 +16,39 @@ const NavigationContext = createContext<NavigationContextType | undefined>(undef
 
 interface NavigationProviderProps {
   children: ReactNode;
+  value: NavigationContextType;
 }
 
-export const NavigationProvider: React.FC<NavigationProviderProps> = ({ children }) => {
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  // Memoize navigationMethods to prevent unnecessary re-creations
-  const navigationMethods = useMemo(() => ({
-    navigate: (path: string, options?: { replace?: boolean }) => {
-      navigate(path, options);
-    },
-    currentPath: location.pathname,
-    goToHome: () => navigate('/'),
-    goToSpeakers: () => navigate('/speakers'),
-    goToSchedule: () => navigate('/schedule'),
-    goToTickets: () => navigate('/tickets'),
-    goToBlog: () => navigate('/blog'),
-    goToContact: () => navigate('/contact'),
-    goToSession: (sessionId: string) => navigate(`/session/${sessionId}`),
-  }), [navigate, location.pathname]); // Dependencies for useMemo
-
+export const NavigationProvider: React.FC<NavigationProviderProps> = ({ children, value }) => {
   // Expose navigation functions globally for voice commands
-  // This useEffect ensures the global functions are always up-to-date
   useEffect(() => {
     // Assign individual methods to window.nlxNavigation
     if (!window.nlxNavigation) {
-      window.nlxNavigation = {} as NavigationContextType; // Initialize if not present
+      window.nlxNavigation = {} as NavigationContextType;
     }
     
     // Assign each method individually
-    window.nlxNavigation.navigate = navigationMethods.navigate;
-    window.nlxNavigation.currentPath = navigationMethods.currentPath;
-    window.nlxNavigation.goToHome = navigationMethods.goToHome;
-    window.nlxNavigation.goToSpeakers = navigationMethods.goToSpeakers;
-    window.nlxNavigation.goToSchedule = navigationMethods.goToSchedule;
-    window.nlxNavigation.goToTickets = navigationMethods.goToTickets;
-    window.nlxNavigation.goToBlog = navigationMethods.goToBlog;
-    window.nlxNavigation.goToContact = navigationMethods.goToContact;
-    window.nlxNavigation.goToSession = navigationMethods.goToSession;
+    window.nlxNavigation.navigate = value.navigate;
+    window.nlxNavigation.currentPath = value.currentPath;
+    window.nlxNavigation.goToHome = value.goToHome;
+    window.nlxNavigation.goToSpeakers = value.goToSpeakers;
+    window.nlxNavigation.goToSchedule = value.goToSchedule;
+    window.nlxNavigation.goToTickets = value.goToTickets;
+    window.nlxNavigation.goToBlog = value.goToBlog;
+    window.nlxNavigation.goToContact = value.goToContact;
+    window.nlxNavigation.goToSession = value.goToSession;
 
-    // Also expose top-level functions for convenience if NLX expects them directly
-    window.navigateToPage = navigationMethods.navigate;
-    window.goToHome = navigationMethods.goToHome;
-    window.goToSpeakers = navigationMethods.goToSpeakers;
-    window.goToSchedule = navigationMethods.goToSchedule;
-    window.goToTickets = navigationMethods.goToTickets;
-    window.goToBlog = navigationMethods.goToBlog;
-    window.goToContact = navigationMethods.goToContact;
-    window.goToSession = navigationMethods.goToSession;
+    // Also expose top-level functions for convenience
+    window.navigateToPage = value.navigate;
+    window.goToHome = value.goToHome;
+    window.goToSpeakers = value.goToSpeakers;
+    window.goToSchedule = value.goToSchedule;
+    window.goToTickets = value.goToTickets;
+    window.goToBlog = value.goToBlog;
+    window.goToContact = value.goToContact;
+    window.goToSession = value.goToSession;
 
-    // Cleanup: remove global functions when component unmounts (though unlikely for a top-level provider)
+    // Cleanup
     return () => {
       if (window.nlxNavigation) {
         delete window.nlxNavigation.navigate;
@@ -89,10 +70,10 @@ export const NavigationProvider: React.FC<NavigationProviderProps> = ({ children
       delete window.goToContact;
       delete window.goToSession;
     };
-  }, [navigationMethods]); // Dependency on the memoized object
+  }, [value]);
 
   return (
-    <NavigationContext.Provider value={navigationMethods}>
+    <NavigationContext.Provider value={value}>
       {children}
     </NavigationContext.Provider>
   );
