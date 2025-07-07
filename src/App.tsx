@@ -1,5 +1,6 @@
 import React from 'react';
 import { NLXWidget } from './components/NLXWidget';
+import { VoiceDebug } from './components/VoiceDebug';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { NavigationProvider } from './contexts/NavigationContext';
 import { Header } from './components/Header';
@@ -18,6 +19,7 @@ function App() {
     <Router>
       <NavigationProvider>
         <NLXWidget /> 
+        <VoiceDebug />
         <div className="min-h-screen bg-white">
           <Header />
           <main className="pt-16">

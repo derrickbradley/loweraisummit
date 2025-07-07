@@ -1,4 +1,4 @@
-import React, { createContext, useContext, ReactNode, useEffect } from 'react';
+import React, { createContext, useContext, ReactNode, useEffect, useMemo } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 interface NavigationContextType {
@@ -23,43 +23,42 @@ export const NavigationProvider: React.FC<NavigationProviderProps> = ({ children
   const navigate = useNavigate();
   const location = useLocation();
 
-  const navigationMethods = {
+  // Memoize navigationMethods to prevent unnecessary re-creations
+  const navigationMethods = useMemo(() => ({
     navigate: (path: string, options?: { replace?: boolean }) => {
+      console.log('Navigating to:', path);
       navigate(path, options);
     },
     currentPath: location.pathname,
-    goToHome: () => navigate('/'),
-    goToSpeakers: () => navigate('/speakers'),
-    goToSchedule: () => navigate('/schedule'),
-    goToTickets: () => navigate('/tickets'),
-    goToBlog: () => navigate('/blog'),
-    goToContact: () => navigate('/contact'),
-    goToSession: (sessionId: string) => navigate(`/session/${sessionId}`),
-  };
-
-  // Expose simple navigation functions globally for voice commands
-  useEffect(() => {
-    window.navigate = navigationMethods.navigate;
-    window.goToHome = navigationMethods.goToHome;
-    window.goToSpeakers = navigationMethods.goToSpeakers;
-    window.goToSchedule = navigationMethods.goToSchedule;
-    window.goToTickets = navigationMethods.goToTickets;
-    window.goToBlog = navigationMethods.goToBlog;
-    window.goToContact = navigationMethods.goToContact;
-    window.goToSession = navigationMethods.goToSession;
-
-    // Cleanup
-    return () => {
-      delete window.navigate;
-      delete window.goToHome;
-      delete window.goToSpeakers;
-      delete window.goToSchedule;
-      delete window.goToTickets;
-      delete window.goToBlog;
-      delete window.goToContact;
-      delete window.goToSession;
-    };
-  }, [navigationMethods]);
+    goToHome: () => {
+      console.log('Navigating to home');
+      navigate('/');
+    },
+    goToSpeakers: () => {
+      console.log('Navigating to speakers');
+      navigate('/speakers');
+    },
+    goToSchedule: () => {
+      console.log('Navigating to schedule');
+      navigate('/schedule');
+    },
+    goToTickets: () => {
+      console.log('Navigating to tickets');
+      navigate('/tickets');
+    },
+    goToBlog: () => {
+      console.log('Navigating to blog');
+      navigate('/blog');
+    },
+    goToContact: () => {
+      console.log('Navigating to contact');
+      navigate('/contact');
+    },
+    goToSession: (sessionId: string) => {
+      console.log('Navigating to session:', sessionId);
+      navigate(`/session/${sessionId}`);
+    },
+  }), [navigate, location.pathname]);
 
   return (
     <NavigationContext.Provider value={navigationMethods}>
@@ -79,7 +78,8 @@ export const useNavigation = (): NavigationContextType => {
 // Global navigation functions for voice commands
 declare global {
   interface Window {
-    navigate: (path: string, options?: { replace?: boolean }) => void;
+    nlxNavigation?: NavigationContextType;
+    navigateToPage: (path: string) => void;
     goToHome: () => void;
     goToSpeakers: () => void;
     goToSchedule: () => void;
