@@ -1,153 +1,27 @@
-import React, { useEffect, useRef } from 'react';
-import NLXManager from '../utils/nlxManager';
+import React, { useEffect } from 'react';
 
 export const NLXWidget: React.FC = () => {
-  const initializationRef = useRef(false);
-  const managerRef = useRef<NLXManager | null>(null);
-
   useEffect(() => {
-    // Get the singleton instance
-    const nlxManager = NLXManager.getInstance();
-    managerRef.current = nlxManager;
+    const initializeNLX = async () => {
+      const { create } = await import("@nlxai/touchpoint-ui");
 
-    // Check if widget is already initialized and exists in DOM
-    if (nlxManager.isReady() && nlxManager.widgetExistsInDOM()) {
-      console.log('Enhanced NLX Voice Plus Widget already ready and in DOM, updating context...');
-      // Update page context for current route
-      nlxManager.updatePageContext();
-      return;
-    }
-
-    // Prevent multiple initializations from the same component
-    if (initializationRef.current) {
-      return;
-    }
-
-    initializationRef.current = true;
-
-    // Initialize the Enhanced Voice Plus widget
-    nlxManager.initialize().catch(error => {
-      console.error('Enhanced NLX Voice Plus Widget initialization failed:', error);
-      initializationRef.current = false; // Reset on failure
-    });
-
-    // Cleanup function - only runs when component unmounts
-    return () => {
-      // Don't destroy the widget on route changes
-      // Only reset the initialization flag for this component instance
-      initializationRef.current = false;
-    };
-  }, []); // Empty dependency array ensures this runs only once per component mount
-
-  // Additional effect to handle page visibility changes
-  useEffect(() => {
-    const handleVisibilityChange = () => {
-      if (document.visibilityState === 'visible') {
-        const nlxManager = NLXManager.getInstance();
-        // Check if widget still exists in DOM, if not, reinitialize
-        if (nlxManager.isReady() && !nlxManager.widgetExistsInDOM()) {
-          console.log('Enhanced Voice Plus Widget missing from DOM, reinitializing...');
-          nlxManager.initialize();
-        } else if (nlxManager.isReady()) {
-          // Update context when page becomes visible
-          nlxManager.updatePageContext();
-        }
-      }
-    };
-
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-    
-    return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-    };
-  }, []);
-
-  // Effect to handle dynamic form changes (matching template pattern)
-  useEffect(() => {
-    const nlxManager = NLXManager.getInstance();
-    
-    // Set up a mutation observer to detect form changes
-    const observer = new MutationObserver((mutations) => {
-      let shouldUpdateContext = false;
-      
-      mutations.forEach((mutation) => {
-        // Check if forms were added or removed
-        if (mutation.type === 'childList') {
-          const addedNodes = Array.from(mutation.addedNodes);
-          const removedNodes = Array.from(mutation.removedNodes);
-          
-          const hasFormChanges = [...addedNodes, ...removedNodes].some(node => {
-            if (node.nodeType === Node.ELEMENT_NODE) {
-              const element = node as Element;
-              return element.tagName === 'FORM' || 
-                     element.querySelector('form') ||
-                     element.tagName === 'INPUT' ||
-                     element.tagName === 'TEXTAREA' ||
-                     element.tagName === 'SELECT';
-            }
-            return false;
-          });
-          
-          if (hasFormChanges) {
-            shouldUpdateContext = true;
-          }
-        }
+      const touchpoint = await create({
+        config: {
+          applicationUrl: "https://apps.nlx.ai/c/vwihrwikqEqKAWjVh9YCI/_mguSWCwBPq11dTtbMiDs",
+          headers: {
+            "nlx-api-key": "FFPPQdPzOYFx8Gad1675NUMC"
+          },
+          languageCode: "en-US",
+          userId: "13e961de-47dc-4f0a-b02a-eb49955c92d5"
+        },
+        colorMode: "dark",
+        input: "voiceMini",
+        theme: {"fontFamily":"\"Neue Haas Grotesk\", sans-serif","accent":"#AECAFF"},
+        bidirectional: {}
       });
-      
-      if (shouldUpdateContext && nlxManager.isReady()) {
-        // Debounce context updates
-        setTimeout(() => {
-          nlxManager.updatePageContext();
-        }, 500);
-      }
-    });
-
-    // Start observing (matching template pattern)
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true
-    });
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
-  // Effect to handle route changes and update context
-  useEffect(() => {
-    const handleRouteChange = () => {
-      const nlxManager = NLXManager.getInstance();
-      if (nlxManager.isReady()) {
-        // Delay to ensure DOM has updated after route change
-        setTimeout(() => {
-          nlxManager.updatePageContext();
-        }, 100);
-      }
     };
 
-    // Listen for both popstate and custom route change events
-    window.addEventListener('popstate', handleRouteChange);
-    
-    // Also listen for programmatic navigation
-    const originalPushState = window.history.pushState;
-    const originalReplaceState = window.history.replaceState;
-
-    window.history.pushState = function(...args) {
-      originalPushState.apply(window.history, args);
-      handleRouteChange();
-    };
-
-    window.history.replaceState = function(...args) {
-      originalReplaceState.apply(window.history, args);
-      handleRouteChange();
-    };
-
-    return () => {
-      window.removeEventListener('popstate', handleRouteChange);
-      // Restore original methods
-      window.history.pushState = originalPushState;
-      window.history.replaceState = originalReplaceState;
-    };
+    initializeNLX();
   }, []);
 
   return null;

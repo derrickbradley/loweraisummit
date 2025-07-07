@@ -5,8 +5,6 @@
 /* Ensure the NLX widget has proper z-index and positioning */
 .nlx-touchpoint-widget {
   z-index: 9999 !important;
-  position: fixed !important;
-  pointer-events: auto !important;
 }
 
 /* Custom styling for the voice widget to match the site theme */
@@ -17,84 +15,6 @@
 /* Ensure the widget doesn't interfere with site navigation */
 .nlx-touchpoint-container {
   pointer-events: auto !important;
-  position: fixed !important;
-  z-index: 9999 !important;
-}
-
-/* Prevent widget from being affected by React re-renders */
-.nlx-touchpoint-widget,
-.nlx-touchpoint-container {
-  transition: none !important;
-  animation: none !important;
-}
-
-/* Ensure widget stays visible during route transitions */
-.nlx-touchpoint-widget {
-  opacity: 1 !important;
-  visibility: visible !important;
-  display: block !important;
-}
-
-/* Additional persistence styles */
-.nlx-touchpoint-widget,
-.nlx-touchpoint-container {
-  will-change: auto !important;
-  transform: none !important;
-}
-
-/* Voice Plus form field highlighting (matching template) */
-.voice-updated {
-  background-color: #ffeb3b !important;
-  transition: background-color 0.3s ease !important;
-}
-
-/* Voice Plus visual feedback styles (matching template) */
-@keyframes highlight {
-  0% {
-    background-color: #ffeb3b;
-  }
-  100% {
-    background-color: transparent;
-  }
-}
-
-@keyframes voice-highlight {
-  0% {
-    background-color: #ffeb3b;
-    box-shadow: 0 0 10px rgba(255, 235, 59, 0.5);
-  }
-  100% {
-    background-color: transparent;
-    box-shadow: none;
-  }
-}
-
-.voice-filled {
-  animation: voice-highlight 2s ease-out;
-}
-
-/* Enhanced Voice Plus widget styling */
-.nlx-touchpoint-widget {
-  border-radius: 12px !important;
-}
-
-/* Voice command feedback (matching template pattern) */
-.voice-command-feedback {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 12px 16px;
-  border-radius: 8px;
-  font-size: 14px;
-  z-index: 10000;
-  animation: fadeInOut 3s ease-in-out;
-}
-
-@keyframes fadeInOut {
-  0%, 100% { opacity: 0; transform: translateY(-10px); }
-  10%, 90% { opacity: 1; transform: translateY(0); }
 }
 
 /* Respect reduced motion preferences */
@@ -111,18 +31,5 @@
   /* Disable confetti and complex animations for reduced motion */
   .confetti-particle {
     display: none !important;
-  }
-  
-  /* Ensure NLX widget respects reduced motion */
-  .nlx-touchpoint-widget,
-  .nlx-touchpoint-container {
-    animation: none !important;
-    transition: none !important;
-  }
-  
-  .voice-updated,
-  .voice-filled {
-    animation: none !important;
-    transition: none !important;
   }
 }
