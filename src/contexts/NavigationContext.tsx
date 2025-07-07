@@ -1,4 +1,4 @@
-import React, { createContext, useContext, ReactNode, useEffect, useMemo } from 'react';
+import React, { createContext, useContext, ReactNode } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 interface NavigationContextType {
@@ -23,8 +23,7 @@ export const NavigationProvider: React.FC<NavigationProviderProps> = ({ children
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Memoize navigationMethods to prevent unnecessary re-creations
-  const navigationMethods = useMemo(() => ({
+  const navigationMethods: NavigationContextType = {
     navigate: (path: string, options?: { replace?: boolean }) => {
       console.log('Navigating to:', path);
       navigate(path, options);
@@ -58,7 +57,7 @@ export const NavigationProvider: React.FC<NavigationProviderProps> = ({ children
       console.log('Navigating to session:', sessionId);
       navigate(`/session/${sessionId}`);
     },
-  }), [navigate, location.pathname]);
+  };
 
   return (
     <NavigationContext.Provider value={navigationMethods}>
@@ -74,18 +73,3 @@ export const useNavigation = (): NavigationContextType => {
   }
   return context;
 };
-
-// Global navigation functions for voice commands
-declare global {
-  interface Window {
-    nlxNavigation?: NavigationContextType;
-    navigateToPage: (path: string) => void;
-    goToHome: () => void;
-    goToSpeakers: () => void;
-    goToSchedule: () => void;
-    goToTickets: () => void;
-    goToBlog: () => void;
-    goToContact: () => void;
-    goToSession: (sessionId: string) => void;
-  }
-}
