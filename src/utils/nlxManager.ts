@@ -93,8 +93,10 @@ class NLXManager {
         (window as any).__nlxTouchpoint = this.touchpoint;
       }
 
-      // Send initial page context
-      this.sendPageContext();
+      // Send initial page context with a delay to ensure touchpoint is fully ready
+      setTimeout(() => {
+        this.sendPageContext();
+      }, 1000);
 
       // Set up route change detection
       this.setupRouteChangeDetection();
@@ -103,6 +105,7 @@ class NLXManager {
     } catch (error) {
       console.error('Failed to initialize Enhanced NLX Voice Plus Widget:', error);
       this.isInitialized = false;
+      throw error; // Re-throw to allow proper error handling
     } finally {
       this.isInitializing = false;
     }
@@ -125,23 +128,29 @@ class NLXManager {
       ];
 
       // Send context using the new sendContext method (matching template exactly)
-      this.touchpoint.conversationHandler.sendContext({
-        "nlx:vpContext": {
-          url: window.location.origin,
-          fields: context,
-          destinations: destinations,
-        },
-      });
+      // Add error handling for the sendContext call
+      if (this.touchpoint.conversationHandler.sendContext) {
+        this.touchpoint.conversationHandler.sendContext({
+          "nlx:vpContext": {
+            url: window.location.origin,
+            fields: context,
+            destinations: destinations,
+          },
+        });
 
-      console.log('Enhanced Voice Plus page context sent to NLX:', {
-        url: window.location.origin,
-        path: window.location.pathname,
-        fieldsCount: Object.keys(context).length,
-        destinationsCount: destinations.length,
-        formElementsCount: Object.keys(formElements).length
-      });
+        console.log('Enhanced Voice Plus page context sent to NLX:', {
+          url: window.location.origin,
+          path: window.location.pathname,
+          fieldsCount: Object.keys(context).length,
+          destinationsCount: destinations.length,
+          formElementsCount: Object.keys(formElements).length
+        });
+      } else {
+        console.warn('sendContext method not available on conversationHandler');
+      }
     } catch (error) {
       console.error('Failed to send page context:', error);
+      // Don't throw here, just log the error to prevent breaking the widget
     }
   }
 
@@ -319,13 +328,19 @@ class NLXManager {
       console.log('Enhanced Voice Plus route changed to:', newRoute);
       
       // Re-analyze page and send new context
-      this.sendPageContext();
+      setTimeout(() => {
+        this.sendPageContext();
+      }, 500);
     }
   }
 
   public updatePageContext(): void {
     // Public method to manually trigger context update
-    this.sendPageContext();
+    if (this.isReady()) {
+      this.sendPageContext();
+    } else {
+      console.warn('Cannot update page context: NLX widget not ready');
+    }
   }
 
   public getTouchpoint() {
@@ -338,7 +353,7 @@ class NLXManager {
 
   public isReady(): boolean {
     const touchpoint = this.getTouchpoint();
-    return this.isInitialized && touchpoint !== null;
+    return this.isInitialized && touchpoint !== null && touchpoint.conversationHandler;
   }
 
   public destroy(): void {
