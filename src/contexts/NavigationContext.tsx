@@ -2,7 +2,7 @@ import React, { createContext, useContext, ReactNode } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 interface NavigationContextType {
-  navigate: (path: string, options?: { replace?: boolean }) => void;
+  navigate: (path: string) => void;
   currentPath: string;
   goToHome: () => void;
   goToSpeakers: () => void;
@@ -24,9 +24,7 @@ export const NavigationProvider: React.FC<NavigationProviderProps> = ({ children
   const location = useLocation();
 
   const navigationMethods = {
-    navigate: (path: string, options?: { replace?: boolean }) => {
-      navigate(path, options);
-    },
+    navigate: (path: string) => navigate(path),
     currentPath: location.pathname,
     goToHome: () => navigate('/'),
     goToSpeakers: () => navigate('/speakers'),
@@ -51,17 +49,3 @@ export const useNavigation = (): NavigationContextType => {
   }
   return context;
 };
-
-// Global navigation functions for voice commands
-declare global {
-  interface Window {
-    navigateToPage: (path: string) => void;
-    goToHome: () => void;
-    goToSpeakers: () => void;
-    goToSchedule: () => void;
-    goToTickets: () => void;
-    goToBlog: () => void;
-    goToContact: () => void;
-    goToSession: (sessionId: string) => void;
-  }
-}
