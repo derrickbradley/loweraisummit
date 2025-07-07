@@ -161,7 +161,7 @@ export const Hero: React.FC<HeroProps> = ({ onGetTickets }) => {
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-              The premier AI conference where intelligence meets innovation. Join leading AI researchers, engineers, and visionaries for three days of transformative artificial intelligence insights.
+              The premier AI conference where intelligence meets innovation. Join leading AI researchers, engineers, and visionaries for two days of transformative artificial intelligence insights in the heart of Paris.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">

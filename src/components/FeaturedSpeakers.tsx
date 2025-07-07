@@ -26,10 +26,10 @@ export const FeaturedSpeakers: React.FC = () => {
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 flex items-center justify-center space-x-3">
             <Brain className="w-8 h-8 text-purple-600" />
-            <span>Featured AI Speakers</span>
+            <span>World-Class AI Speakers</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Learn from the brightest minds in artificial intelligence, machine learning, and AI innovation.
+            Learn from the brightest minds in artificial intelligence, machine learning, and AI innovation from around the globe, gathering in Paris.
           </p>
         </motion.div>
 

@@ -30,10 +30,10 @@ export const Stats: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Conference by the Numbers
+            AI Summit by the Numbers
           </h2>
           <p className="text-xl text-purple-200 max-w-3xl mx-auto">
-            Join a global community of AI innovators and thought leaders.
+            Join a global community of AI innovators and thought leaders in Paris, France.
           </p>
         </motion.div>
 
