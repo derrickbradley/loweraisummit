@@ -157,38 +157,44 @@ export const NLXWidget: React.FC = () => {
   };
 
   const handleNavigationCommand = (action: string, command: any) => {
-    console.log('Action:', action);
-    console.log('Destination:', command?.destination);
-    if (!command.destination) {
-      command.destination = command.page || command.url;
+    console.log('Navigation Action:', action);
+    console.log('Full Command:', command);
+    
+    // Get destination from various possible fields
+    let destination = command?.destination || command?.page || command?.url || command?.data?.destination;
+    
+    console.log('Raw Destination:', destination);
+
+    // Clean up destination
+    if (destination) {
+      // Remove 'page' suffix from destination if it exists
+      destination = destination.replace(/page$/i, '');
+      // Remove leading/trailing whitespace
+      destination = destination.trim();
+      // Convert to lowercase for consistency
+      destination = destination.toLowerCase();
     }
 
-    // remove 'page' suffix from destination if it exists
-    if (command?.destination) {
-      command.destination = command.destination.replace(/page$/, '');
-    }
+    console.log('Cleaned Destination:', destination);
 
     switch (action) {
-        case 'page_next':
-          // Use browser's forward navigation
-          window.history.forward();
-          break;
-        case 'page_previous':
-          // Use browser's back navigation
-          window.history.back();
-          break;
+      case 'page_next':
+        // Use browser's forward navigation
+        window.history.forward();
+        break;
+      case 'page_previous':
+        // Use browser's back navigation
+        window.history.back();
+        break;
       case 'page_custom':
+      case 'page_unknown':
         // Navigate to specific page using destination field
-        if (command?.destination) {
-          // Handle special cases for our routes
-          let route = command.destination;
-          if (route === 'home') {
-            route = '/';
-          } else if (!route.startsWith('/')) {
-            route = `/${route}`;
-          }
-          console.log('Navigating to:', route);
+        if (destination) {
+          let route = mapDestinationToRoute(destination);
+          console.log('Mapped route:', route);
           navigate(route);
+        } else {
+          console.warn('No destination provided for navigation command');
         }
         break;
       default:
@@ -196,9 +202,55 @@ export const NLXWidget: React.FC = () => {
     }
   };
 
+  // Map destination strings to actual routes
+  const mapDestinationToRoute = (destination: string): string => {
+    const destinationMap: { [key: string]: string } = {
+      'home': '/',
+      'homepage': '/',
+      'main': '/',
+      'index': '/',
+      'speakers': '/speakers',
+      'speaker': '/speakers',
+      'schedule': '/schedule',
+      'sessions': '/schedule',
+      'session': '/schedule',
+      'agenda': '/schedule',
+      'tickets': '/tickets',
+      'ticket': '/tickets',
+      'pricing': '/tickets',
+      'blog': '/blog',
+      'news': '/blog',
+      'articles': '/blog',
+      'contact': '/contact',
+      'contactus': '/contact',
+      'about': '/contact',
+      'info': '/contact'
+    };
+
+    // Direct mapping
+    if (destinationMap[destination]) {
+      return destinationMap[destination];
+    }
+
+    // Check if it's already a valid route
+    if (destination.startsWith('/')) {
+      return destination;
+    }
+
+    // Try to find partial matches
+    for (const [key, value] of Object.entries(destinationMap)) {
+      if (destination.includes(key) || key.includes(destination)) {
+        return value;
+      }
+    }
+
+    // Default fallback - if we can't map it, try adding a slash
+    return `/${destination}`;
+  };
+
   const handleInputCommand = (action: string, command: any) => {
     // Handle new structure with fields array at command level
-    console.log('command:', command);
+    console.log('Input command:', command);
     console.log('formElementsRef.current:', formElementsRef.current);
     
     // Use the ref to get the latest formElements
