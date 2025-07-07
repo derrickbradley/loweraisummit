@@ -24,6 +24,10 @@ export const NLXWidget: React.FC = () => {
         input: "voiceMini",
         theme: {"fontFamily":"\"Neue Haas Grotesk\", sans-serif","accent":"#AECAFF"},
         bidirectional: {}
+        bidirectional: {
+          automaticContext: false,
+          navigation: navigation,
+        },
       });
     };
 
