@@ -22,24 +22,8 @@ interface NavigationProviderProps {
 export const NavigationProvider: React.FC<NavigationProviderProps> = ({ children, value }) => {
   // Expose navigation functions globally for voice commands
   useEffect(() => {
-    // Assign individual methods to window.nlxNavigation
-    if (!window.nlxNavigation) {
-      window.nlxNavigation = {} as NavigationContextType;
-    }
-    
-    // Assign each method individually
-    window.nlxNavigation.navigate = value.navigate;
-    window.nlxNavigation.currentPath = value.currentPath;
-    window.nlxNavigation.goToHome = value.goToHome;
-    window.nlxNavigation.goToSpeakers = value.goToSpeakers;
-    window.nlxNavigation.goToSchedule = value.goToSchedule;
-    window.nlxNavigation.goToTickets = value.goToTickets;
-    window.nlxNavigation.goToBlog = value.goToBlog;
-    window.nlxNavigation.goToContact = value.goToContact;
-    window.nlxNavigation.goToSession = value.goToSession;
-
-    // Also expose top-level functions for convenience
-    window.navigateToPage = value.navigate;
+    // Simple global navigation function
+    window.navigate = value.navigate;
     window.goToHome = value.goToHome;
     window.goToSpeakers = value.goToSpeakers;
     window.goToSchedule = value.goToSchedule;
@@ -50,18 +34,7 @@ export const NavigationProvider: React.FC<NavigationProviderProps> = ({ children
 
     // Cleanup
     return () => {
-      if (window.nlxNavigation) {
-        delete window.nlxNavigation.navigate;
-        delete window.nlxNavigation.currentPath;
-        delete window.nlxNavigation.goToHome;
-        delete window.nlxNavigation.goToSpeakers;
-        delete window.nlxNavigation.goToSchedule;
-        delete window.nlxNavigation.goToTickets;
-        delete window.nlxNavigation.goToBlog;
-        delete window.nlxNavigation.goToContact;
-        delete window.nlxNavigation.goToSession;
-      }
-      delete window.navigateToPage;
+      delete window.navigate;
       delete window.goToHome;
       delete window.goToSpeakers;
       delete window.goToSchedule;
@@ -90,8 +63,7 @@ export const useNavigation = (): NavigationContextType => {
 // Global navigation functions for voice commands
 declare global {
   interface Window {
-    nlxNavigation?: NavigationContextType;
-    navigateToPage: (path: string) => void;
+    navigate: (path: string) => void;
     goToHome: () => void;
     goToSpeakers: () => void;
     goToSchedule: () => void;
