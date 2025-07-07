@@ -23,6 +23,16 @@
 [data-nlx-touchpoint] {
   position: fixed !important;
   z-index: 9999 !important;
+  pointer-events: auto !important;
+}
+
+/* Ensure widget persists during navigation */
+[data-nlx-touchpoint][data-persistent="true"] {
+  position: fixed !important;
+  z-index: 10000 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: block !important;
 }
 
 /* Respect reduced motion preferences */
