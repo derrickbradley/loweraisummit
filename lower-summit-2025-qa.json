@@ -9,11 +9,11 @@
   },
   {
     "question": "Where is Lower Summit 2025 held?",
-    "answer": "The conference is held in San Francisco, CA."
+    "answer": "The conference is held in Paris, France."
   },
   {
     "question": "How many attendees are expected?",
-    "answer": "The conference expects 500+ AI professionals."
+    "answer": "The conference expects 5000+ AI professionals."
   },
   {
     "question": "How many speakers will be presenting?",
@@ -545,7 +545,7 @@
   },
   {
     "question": "What is the conference address?",
-    "answer": "The conference address is 123 Innovation Drive, San Francisco, CA 94105.",
+    "answer": "The conference address is 123 Avenue des Champs-Élysées, Paris, France 75008.",
     "nlx:sourceTitle": "Get In Touch",
     "nlx:destination": "/contact"
   },

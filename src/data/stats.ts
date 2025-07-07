@@ -8,7 +8,7 @@ export interface ConferenceStat {
 export const conferenceStats: ConferenceStat[] = [
   {
     id: '1',
-    value: '500+',
+    value: '5000+',
     label: 'AI Professionals',
     icon: 'users'
   },

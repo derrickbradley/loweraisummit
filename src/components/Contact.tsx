@@ -86,8 +86,8 @@ export const Contact: React.FC = () => {
                 <div>
                   <h4 className="font-semibold text-gray-900">Address</h4>
                   <p className="text-gray-600">
-                    123 Innovation Drive<br />
-                    San Francisco, CA 94105
+                    123 Avenue des Champs-Élysées<br />
+                    Paris, France 75008
                   </p>
                 </div>
               </div>

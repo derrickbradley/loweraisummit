@@ -171,11 +171,11 @@ export const Hero: React.FC<HeroProps> = ({ onGetTickets }) => {
               </div>
               <div className="flex items-center space-x-2 text-gray-300">
                 <MapPin className="w-5 h-5" />
-                <span>San Francisco, CA</span>
+                <span>Paris, France</span>
               </div>
               <div className="flex items-center space-x-2 text-gray-300">
                 <Users className="w-5 h-5" />
-                <span>500+ AI Professionals</span>
+                <span>5000+ AI Professionals</span>
               </div>
             </div>
 

@@ -39,7 +39,7 @@ export const Sponsors: React.FC = () => {
             Our Sponsors
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We're grateful to our sponsors who make this conference possible and support the AI community.
+            We're grateful to our sponsors who make this conference possible and support the global AI community in Paris.
           </p>
         </motion.div>
 

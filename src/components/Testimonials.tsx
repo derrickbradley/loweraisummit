@@ -76,7 +76,7 @@ export const Testimonials: React.FC = () => {
               Join the Success Stories
             </h3>
             <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Be part of the next generation of AI leaders. Secure your spot at Raise Summit 2025.
+              Be part of the next generation of AI leaders. Secure your spot at Lower Summit 2025 in Paris.
             </p>
             <motion.button
               className="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-lg transition-all duration-200"
