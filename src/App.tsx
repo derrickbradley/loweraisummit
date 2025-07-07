@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { NavigationProvider } from './contexts/NavigationContext';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
@@ -16,6 +16,8 @@ function App() {
   return (
     <Router>
       <NavigationProvider>
+        {/* Moved NLXWidget here to ensure it mounts early within the NavigationContext */}
+        <NLXWidget /> 
         <div className="min-h-screen bg-white">
           <Header />
           <main className="pt-16">
@@ -30,7 +32,6 @@ function App() {
             </Routes>
           </main>
           <Footer />
-          <NLXWidget />
         </div>
       </NavigationProvider>
     </Router>
