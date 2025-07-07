@@ -24,9 +24,6 @@ export const NLXWidget: React.FC = () => {
         input: "voiceMini",
         theme: {"fontFamily":"\"Neue Haas Grotesk\", sans-serif","accent":"#AECAFF"},
         bidirectional: {
-          automaticContext: false,
-          // Pass the navigate function directly instead of the whole navigation object
-          navigation: navigation.navigate,
         },
       });
     };
