@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { NavigationProvider } from './contexts/NavigationContext';
+import { VoiceNavigationHandler } from './components/VoiceNavigationHandler';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { HomePage } from './pages/HomePage';
@@ -14,22 +16,25 @@ import { NLXWidget } from './components/NLXWidget';
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-white">
-        <Header />
-        <main className="pt-16">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/speakers" element={<SpeakersPage />} />
-            <Route path="/schedule" element={<SchedulePage />} />
-            <Route path="/session/:sessionId" element={<SessionPage />} />
-            <Route path="/tickets" element={<TicketsPage />} />
-            <Route path="/blog" element={<BlogPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-          </Routes>
-        </main>
-        <Footer />
-        <NLXWidget />
-      </div>
+      <NavigationProvider>
+        <VoiceNavigationHandler />
+        <div className="min-h-screen bg-white">
+          <Header />
+          <main className="pt-16">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/speakers" element={<SpeakersPage />} />
+              <Route path="/schedule" element={<SchedulePage />} />
+              <Route path="/session/:sessionId" element={<SessionPage />} />
+              <Route path="/tickets" element={<TicketsPage />} />
+              <Route path="/blog" element={<BlogPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+            </Routes>
+          </main>
+          <Footer />
+          <NLXWidget />
+        </div>
+      </NavigationProvider>
     </Router>
   );
 }

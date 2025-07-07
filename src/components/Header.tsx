@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useNavigation } from '../contexts/NavigationContext';
 import { Menu, X, Calendar, Users, Ticket, BookOpen, Brain, MessageCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { navigate } = useNavigation();
 
   const navigation = [
     { path: '/', label: 'Home', icon: Brain },
@@ -18,6 +20,10 @@ export const Header: React.FC = () => {
 
   const isActive = (path: string) => location.pathname === path;
 
+  const handleNavClick = (path: string) => {
+    navigate(path);
+    setIsMenuOpen(false);
+  };
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,9 +47,9 @@ export const Header: React.FC = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
-              <Link
+              <button
                 key={item.path}
-                to={item.path}
+                onClick={() => handleNavClick(item.path)}
                 className={`flex items-center space-x-1 px-3 py-2 rounded-lg transition-all duration-200 ${
                   isActive(item.path)
                     ? 'bg-purple-100 text-purple-700'
@@ -52,7 +58,7 @@ export const Header: React.FC = () => {
               >
                 <item.icon className="w-4 h-4" />
                 <span className="font-medium">{item.label}</span>
-              </Link>
+              </button>
             ))}
           </nav>
 
@@ -76,10 +82,9 @@ export const Header: React.FC = () => {
             >
               <nav className="py-4 space-y-2">
                 {navigation.map((item) => (
-                  <Link
+                  <button
                     key={item.path}
-                    to={item.path}
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={() => handleNavClick(item.path)}
                     className={`flex items-center space-x-2 w-full px-4 py-3 rounded-lg transition-all duration-200 ${
                       isActive(item.path)
                         ? 'bg-purple-100 text-purple-700'
@@ -88,7 +93,7 @@ export const Header: React.FC = () => {
                   >
                     <item.icon className="w-5 h-5" />
                     <span className="font-medium">{item.label}</span>
-                  </Link>
+                  </button>
                 ))}
               </nav>
             </motion.div>

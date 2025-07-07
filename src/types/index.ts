@@ -112,3 +112,19 @@ export interface SessionRegistration {
   sessionLocation: string;
   registeredAt: string;
 }
+
+// Global type declarations for voice navigation
+declare global {
+  interface Window {
+    nlxNavigation?: {
+      navigate: (path: string, options?: { replace?: boolean }) => void;
+      goToHome: () => void;
+      goToSpeakers: () => void;
+      goToSchedule: () => void;
+      goToTickets: () => void;
+      goToBlog: () => void;
+      goToContact: () => void;
+      goToSession: (sessionId: string) => void;
+    };
+  }
+}

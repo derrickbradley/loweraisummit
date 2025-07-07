@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigation } from '../contexts/NavigationContext';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, MapPin, User, ExternalLink } from 'lucide-react';
 import { schedule } from '../data/schedule';
@@ -9,7 +9,7 @@ import { SessionRegistrationButton } from './SessionRegistrationButton';
 import { format } from 'date-fns';
 
 export const Schedule: React.FC = () => {
-  const navigate = useNavigate();
+  const { goToSession } = useNavigation();
   const [selectedDay, setSelectedDay] = useState('2025-07-08');
   const [selectedSession, setSelectedSession] = useState<string | null>(null);
 
@@ -39,7 +39,7 @@ export const Schedule: React.FC = () => {
     // Check if session has detailed page
     const hasDetailPage = sessionDetails.find(session => session.id === sessionId);
     if (hasDetailPage) {
-      navigate(`/session/${sessionId}`);
+      goToSession(sessionId);
     } else {
       setSelectedSession(sessionId);
     }
@@ -143,7 +143,7 @@ export const Schedule: React.FC = () => {
                           <button 
                             onClick={(e) => {
                               e.stopPropagation();
-                              navigate(`/session/${item.id}`);
+                              goToSession(item.id);
                             }}
                             className="flex items-center space-x-2 text-purple-600 hover:text-purple-700 transition-colors"
                           >

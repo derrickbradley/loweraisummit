@@ -1,7 +1,13 @@
 import React, { useEffect } from 'react';
+import { useNavigation } from '../contexts/NavigationContext';
 
 export const NLXWidget: React.FC = () => {
+  const navigation = useNavigation();
+
   useEffect(() => {
+    // Make navigation available globally for NLX voice commands
+    window.nlxNavigation = navigation;
+    
     const initializeNLX = async () => {
       const { create } = await import("@nlxai/touchpoint-ui");
 
@@ -22,7 +28,12 @@ export const NLXWidget: React.FC = () => {
     };
 
     initializeNLX();
-  }, []);
+    
+    // Cleanup
+    return () => {
+      delete window.nlxNavigation;
+    };
+  }, [navigation]);
 
   return null;
 };

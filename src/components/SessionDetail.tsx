@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigation } from '../contexts/NavigationContext';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, MapPin, ArrowLeft, CheckCircle, Tag } from 'lucide-react';
 import { SessionDetail as SessionDetailType } from '../types';
@@ -11,13 +11,13 @@ interface SessionDetailProps {
 }
 
 export const SessionDetail: React.FC<SessionDetailProps> = ({ session, onBack }) => {
-  const navigate = useNavigate();
+  const { goToSchedule } = useNavigation();
 
   const handleBack = () => {
     if (onBack) {
       onBack();
     } else {
-      navigate('/schedule');
+      goToSchedule();
     }
   };
 

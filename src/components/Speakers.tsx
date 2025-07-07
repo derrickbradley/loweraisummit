@@ -1,12 +1,12 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigation } from '../contexts/NavigationContext';
 import { motion } from 'framer-motion';
 import { ExternalLink, Twitter, Linkedin, Github } from 'lucide-react';
 import { speakers } from '../data/speakers';
 import { sessionDetails } from '../data/sessions';
 
 export const Speakers: React.FC = () => {
-  const navigate = useNavigate();
+  const { goToSession } = useNavigation();
 
   const getSpeakerSession = (speakerName: string) => {
     return sessionDetails.find(session => session.speaker === speakerName);
@@ -41,7 +41,7 @@ export const Speakers: React.FC = () => {
                 className={`bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 ${
                   speakerSession ? 'cursor-pointer group' : ''
                 }`}
-                onClick={() => speakerSession && navigate(`/session/${speakerSession.id}`)}
+                onClick={() => speakerSession && goToSession(speakerSession.id)}
               >
                 <div className="md:flex">
                   <div className="md:w-1/3">

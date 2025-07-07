@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigation } from '../contexts/NavigationContext';
 import { Hero } from '../components/Hero';
 import { Stats } from '../components/Stats';
 import { FeaturedSpeakers } from '../components/FeaturedSpeakers';
@@ -8,10 +8,10 @@ import { Testimonials } from '../components/Testimonials';
 import { Sponsors } from '../components/Sponsors';
 
 export const HomePage: React.FC = () => {
-  const navigate = useNavigate();
+  const { goToTickets } = useNavigation();
 
   const handleGetTickets = () => {
-    navigate('/tickets');
+    goToTickets();
   };
 
   return (

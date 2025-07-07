@@ -1,12 +1,12 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigation } from '../contexts/NavigationContext';
 import { motion } from 'framer-motion';
 import { ArrowRight, Twitter, Linkedin, Brain } from 'lucide-react';
 import { speakers } from '../data/speakers';
 import { sessionDetails } from '../data/sessions';
 
 export const FeaturedSpeakers: React.FC = () => {
-  const navigate = useNavigate();
+  const { navigate, goToSpeakers, goToSession } = useNavigation();
 
   // Get first 6 speakers as featured
   const featuredSpeakers = speakers.slice(0, 6);
@@ -45,7 +45,7 @@ export const FeaturedSpeakers: React.FC = () => {
                 className={`bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group ${
                   speakerSession ? 'cursor-pointer' : ''
                 }`}
-                onClick={() => speakerSession && navigate(`/session/${speakerSession.id}`)}
+                onClick={() => speakerSession && goToSession(speakerSession.id)}
               >
                 <div className="relative overflow-hidden">
                   <img
@@ -119,7 +119,7 @@ export const FeaturedSpeakers: React.FC = () => {
           className="text-center"
         >
           <motion.button
-            onClick={() => navigate('/speakers')}
+            onClick={goToSpeakers}
             className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:shadow-lg transition-all duration-200"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
