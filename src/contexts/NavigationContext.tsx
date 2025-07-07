@@ -41,28 +41,7 @@ export const NavigationProvider: React.FC<NavigationProviderProps> = ({ children
   useEffect(() => {
     window.nlxNavigation = navigationMethods;
     
-    // Also expose individual functions for backwards compatibility
-    window.navigateToPage = navigationMethods.navigate;
-    window.goToHome = navigationMethods.goToHome;
-    window.goToSpeakers = navigationMethods.goToSpeakers;
-    window.goToSchedule = navigationMethods.goToSchedule;
-    window.goToTickets = navigationMethods.goToTickets;
-    window.goToBlog = navigationMethods.goToBlog;
-    window.goToContact = navigationMethods.goToContact;
-    window.goToSession = navigationMethods.goToSession;
-
-    // Cleanup function
-    return () => {
-      delete window.nlxNavigation;
-      delete window.navigateToPage;
-      delete window.goToHome;
-      delete window.goToSpeakers;
-      delete window.goToSchedule;
-      delete window.goToTickets;
-      delete window.goToBlog;
-      delete window.goToContact;
-      delete window.goToSession;
-    };
+  
   }, [navigationMethods]);
 
   return (
