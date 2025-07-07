@@ -130,13 +130,20 @@ class NLXManager {
       // Send context using the new sendContext method (matching template exactly)
       // Add error handling for the sendContext call
       if (this.touchpoint.conversationHandler.sendContext) {
-        this.touchpoint.conversationHandler.sendContext({
-          "nlx:vpContext": {
-            url: window.location.origin,
-            fields: context,
-            destinations: destinations,
-          },
-        });
+        // Wrap sendContext in try-catch to handle fetch errors gracefully
+        try {
+          this.touchpoint.conversationHandler.sendContext({
+            "nlx:vpContext": {
+              url: window.location.origin,
+              fields: context,
+              destinations: destinations,
+            },
+          });
+        } catch (contextError) {
+          console.warn('Failed to send context to NLX service:', contextError);
+          // Don't throw here - allow the widget to continue functioning without context
+          return;
+        }
 
         console.log('Enhanced Voice Plus page context sent to NLX:', {
           url: window.location.origin,
