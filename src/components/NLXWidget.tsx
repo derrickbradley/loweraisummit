@@ -26,7 +26,7 @@ export const NLXWidget: React.FC = () => {
         bidirectional: {}
         bidirectional: {
           automaticContext: false,
-          navigation: navigation
+          navigation: navigation,
         },
       });
     };
