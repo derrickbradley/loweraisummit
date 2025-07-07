@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { NavigationProvider } from './contexts/NavigationContext';
-import { VoiceNavigationHandler } from './components/VoiceNavigationHandler';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { HomePage } from './pages/HomePage';
@@ -17,7 +16,6 @@ function App() {
   return (
     <Router>
       <NavigationProvider>
-        <VoiceNavigationHandler />
         <div className="min-h-screen bg-white">
           <Header />
           <main className="pt-16">
