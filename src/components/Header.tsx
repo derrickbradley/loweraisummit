@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 import { useNavigation } from '../contexts/NavigationContext';
 import { Menu, X, Calendar, Users, Ticket, BookOpen, Brain, MessageCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const location = useLocation();
-  const { navigate } = useNavigation();
+  const { navigate, currentPath } = useNavigation();
 
   const navigation = [
     { path: '/', label: 'Home', icon: Brain },
@@ -18,12 +16,17 @@ export const Header: React.FC = () => {
     { path: '/contact', label: 'Contact', icon: MessageCircle }
   ];
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => currentPath === path;
 
   const handleNavClick = (path: string) => {
     navigate(path);
     setIsMenuOpen(false);
   };
+
+  const handleLogoClick = () => {
+    navigate('/');
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,14 +36,14 @@ export const Header: React.FC = () => {
               className="flex items-center space-x-2"
               whileHover={{ scale: 1.05 }}
             >
-              <Link to="/" className="flex items-center space-x-2">
+              <button onClick={handleLogoClick} className="flex items-center space-x-2">
                 <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
                   <Brain className="w-5 h-5 text-white" />
                 </div>
                 <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
                   Lower Summit 2025
                 </span>
-              </Link>
+              </button>
             </motion.div>
           </div>
 
