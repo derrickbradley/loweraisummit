@@ -13,7 +13,7 @@ export const NLXWidget: React.FC = () => {
 
       const touchpoint = await create({
         config: {
-          applicationUrl: "wss://us-east-1-ws.apps.nlx.ai?apiKey=FFPPQdPzOYFx8Gad1675NUMC&deploymentKey=vwihrwikqEqKAWjVh9YCI&channelKey=_mguSWCwBPq11dTtbMiDs",
+          applicationUrl: "https://apps.nlx.ai/c/vwihrwikqEqKAWjVh9YCI/_mguSWCwBPq11dTtbMiDs",
           headers: {
             "nlx-api-key": "FFPPQdPzOYFx8Gad1675NUMC"
           },
@@ -23,10 +23,7 @@ export const NLXWidget: React.FC = () => {
         colorMode: "dark",
         input: "voiceMini",
         theme: {"fontFamily":"\"Neue Haas Grotesk\", sans-serif","accent":"#AECAFF"},
-        bidirectional: {
-          automaticContext: false,
-          navigation: navigation,
-        },
+        bidirectional: {}
       });
     };
 
