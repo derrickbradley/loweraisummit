@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header';
+import { NLXWidget } from './components/NLXWidget';
 import { Footer } from './components/Footer';
 import { HomePage } from './pages/HomePage';
 import { SpeakersPage } from './pages/SpeakersPage';
@@ -9,7 +10,7 @@ import { SessionPage } from './pages/SessionPage';
 import { TicketsPage } from './pages/TicketsPage';
 import { BlogPage } from './pages/BlogPage';
 import { ContactPage } from './pages/ContactPage';
-import { NLXWidget } from './components/NLXWidget';
+
 
 function App() {
   return (
