@@ -1,4 +1,5 @@
 import React from 'react';
+import { NLXWidget } from './components/NLXWidget';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { NavigationProvider } from './contexts/NavigationContext';
 import { Header } from './components/Header';
@@ -10,7 +11,7 @@ import { SessionPage } from './pages/SessionPage';
 import { TicketsPage } from './pages/TicketsPage';
 import { BlogPage } from './pages/BlogPage';
 import { ContactPage } from './pages/ContactPage';
-import { NLXWidget } from './components/NLXWidget';
+
 
 function App() {
   return (
