@@ -8,7 +8,7 @@ export const blogPosts: BlogPost[] = [
     content: 'Full blog post content would go here...',
     author: 'Conference Team',
     date: '2025-01-15',
-    image: 'https://api.dicebear.com/7.x/illustrations/svg?seed=speakers&backgroundColor=b6e3f4,c0aede,d1d4f9',
+    image: 'https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=800',
     tags: ['Speakers', 'Announcement']
   },
   {
@@ -18,7 +18,7 @@ export const blogPosts: BlogPost[] = [
     content: 'Full blog post content would go here...',
     author: 'Dr. Emily Watson',
     date: '2025-01-10',
-    image: 'https://api.dicebear.com/7.x/illustrations/svg?seed=ai-business&backgroundColor=b6e3f4,c0aede,d1d4f9',
+    image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800',
     tags: ['AI', 'Technology', 'Business']
   },
   {
@@ -28,7 +28,7 @@ export const blogPosts: BlogPost[] = [
     content: 'Full blog post content would go here...',
     author: 'James Park',
     date: '2025-01-05',
-    image: 'https://api.dicebear.com/7.x/illustrations/svg?seed=cloud-infrastructure&backgroundColor=b6e3f4,c0aede,d1d4f9',
+    image: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800',
     tags: ['Cloud', 'Architecture', 'Engineering']
   }
 ];
